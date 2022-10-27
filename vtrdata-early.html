@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+		crossorigin="anonymous" />
+	<title>Polling Places</title>
+
+	<style>
+		#leftSection {
+			height: 100vh;
+			position: relative;
+		}
+
+		#rightSection {
+			height: 100vh;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div style="width: 100vw; height: 100vh; display: flex; flex-direction: column">
+		<div>
+			<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+		</div>
+		<div style="background-color: #00ffff20; width: 100vw; height: 100vh; display: flex; flex-grow: 1 1 0">
+			<div class="col-12 col-md-3" id="leftSection">
+				p
+			</div>
+			<div class="col-12 col-md-9" id="rightSection">
+				<div id="mapContainer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h5 id="offcanvasRightLabel">Offcanvas right</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			...
+		</div>
+	</div>
+	<!--
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+-->
+	<script>
+		earlyVoting = [
+			{ "name": "BEXAR COUNTY ELECTIONS(BOTH)", "AddressLine": "1103 S. FRIO", "cityStateZip": "SAN ANTONIO TX 78207", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "BEXAR COUNTY JUSTICE CENTER(BOTH)", "AddressLine": "300 DOLOROSA", "cityStateZip": "SAN ANTONIO TX 78205", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-06:00 PM", "", ""] },
+
+			{ "name": "BROOKHOLLOW BRANCH LIBRARY(BOTH)", "AddressLine": "530 HEIMER RD.", "cityStateZip": "SAN ANTONIO TX 78232", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "CASTLE HILLS CITY HALL(BOTH)", "AddressLine": "209 LEMONWOOD", "cityStateZip": "SAN ANTONIO TX 78213", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "CHRISTIAN FAMILY BAPTIST CHURCH(BOTH)", "AddressLine": "1589 GROSSENBACHER", "cityStateZip": "SAN ANTONIO TX 78245", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "CLAUDE BLACK COMMUNITY CENTER(BOTH)", "AddressLine": "2805 E. COMMERCE", "cityStateZip": "SAN ANTONIO TX 78202", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "CODY BRANCH LIBRARY(BOTH)", "AddressLine": "11441 VANCE JACKSON", "cityStateZip": "SAN ANTONIO TX 78230", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "COPERNICUS COMM. CENTER(BOTH)", "AddressLine": "5003 LORD RD.", "cityStateZip": "SAN ANTONIO TX 78220", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "CORTEZ BRANCH LIBRARY(BOTH)", "AddressLine": "2803 HUNTER BLVD.", "cityStateZip": "SAN ANTONIO TX 78224", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "EAST CENTRAL ISD ADMIN BUILDING(BOTH)", "AddressLine": "6634 NEW SULPHUR SPRINGS RD.", "cityStateZip": "SAN ANTONIO TX 78263", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "ELMENDORF CITY HALL(BOTH)", "AddressLine": "4133 ELDRIDGE AVE.", "cityStateZip": "ELMENDORF TX 78237", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "ENCINO BRANCH LIBRARY(BOTH)", "AddressLine": "2515 E. EVANS RD.", "cityStateZip": "SAN ANTONIO TX 78259", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "FRANK GARRETT MULTI SERVICE CENTER(BOTH)", "AddressLine": "1226 NW 18TH STREET", "cityStateZip": "SAN ANTONIO TX 78207", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "GREAT NORTHWEST BRANCH LIBRARY(BOTH)", "AddressLine": "9050 WELLWOOD", "cityStateZip": "SAN ANTONIO TX 78250", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "GUERRA BRANCH LIBRARY(BOTH)", "AddressLine": "7978 W. MILITARY DRIVE", "cityStateZip": "SAN ANTONIO TX 78227", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "HELOTES CITY HALL(BOTH)", "AddressLine": "12951 BANDERA ROAD", "cityStateZip": "HELOTES TX 78023", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "IGO BRANCH LIBRARY(BOTH)", "AddressLine": "13330 KYLE SEALE PARKWAY", "cityStateZip": "SAN ANTONIO TX 78249", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "JOHNSTON BRANCH LIBRARY(BOTH)", "AddressLine": "6307 SUN VALLEY DRIVE", "cityStateZip": "SAN ANTONIO TX 78227", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "KIRBY CITY HALL(BOTH)", "AddressLine": "112 BAUMAN ST.", "cityStateZip": "KIRBY TX 78219", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "LAS PALMAS BRANCH LIBRARY(BOTH)", "AddressLine": "515 CASTROVILLE RD.", "cityStateZip": "SAN ANTONIO TX 78237", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "LEON VALLEY CONFERENCE CENTER(BOTH)", "AddressLine": "6427 EVERS RD.", "cityStateZip": "SAN ANTONIO TX 78238", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "LIONS FIELD ADULT AND SENIOR CENTER(BOTH)", "AddressLine": "2809 BROADWAY ST.", "cityStateZip": "SAN ANTONIO TX 78209", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "MAVERICK BRANCH LIBRARY(BOTH)", "AddressLine": "8700 MYSTIC PARK", "cityStateZip": "SAN ANTONIO TX 78254", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "MCCRELESS LIBRARY(BOTH)", "AddressLine": "1023 ADA ST.", "cityStateZip": "SAN ANTONIO TX 78223", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "MISSION BRANCH LIBRARY(BOTH)", "AddressLine": "3134 ROOSEVELT AVE", "cityStateZip": "SAN ANTONIO TX 78214", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "NORTHSIDE ACTIVITY CENTER(BOTH)", "AddressLine": "7001 CULEBRA RD.", "cityStateZip": "SAN ANTONIO TX 78238", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "NORTHWEST VISTA COLLEGE(BOTH)", "AddressLine": "3535 N. ELLISON DRIVE", "cityStateZip": "SAN ANTONIO TX 78251", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "OLD CONVERSE CITY HALL(BOTH)", "AddressLine": "405 S. SEGUIN ROAD", "cityStateZip": "CONVERSE TX 78109", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "OLMOS PARK CITY HALL(BOTH)", "AddressLine": "120 EL PRADO DR. W.", "cityStateZip": "SAN ANTONIO TX 78212", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "OUR LADY OF THE LAKE UNIVERSITY(BOTH)", "AddressLine": "411 S.W. 24TH STREET", "cityStateZip": "SAN ANTONIO TX 78207", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "PALO ALTO COLLEGE(BOTH)", "AddressLine": "1400 W. VILLARET BLVD", "cityStateZip": "SAN ANTONIO TX 78224", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "PARMAN BRANCH LIBRARY AT STONE OAK(BOTH)", "AddressLine": "20735 WILDERNESS OAK", "cityStateZip": "SAN ANTONIO TX 78258", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "PRECINCT 1 SATELLITE OFFICE(BOTH)", "AddressLine": "3505 PLEASANTON ROAD", "cityStateZip": "SAN ANTONIO TX 78221", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "PRECINCT 3 SATELLITE OFFICE(BOTH)", "AddressLine": "320 INTERPARK BLVD", "cityStateZip": "SAN ANTONIO TX 78216", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SAC VICTORY CENTER(BOTH)", "AddressLine": "1819 N. MAIN AVE.", "cityStateZip": "SAN ANTONIO TX 78212", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SCHAEFER BRANCH LIBRARY(BOTH)", "AddressLine": "6322 US HWY 87 E.", "cityStateZip": "SAN ANTONIO TX 78222", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SEMMES BRANCH LIBRARY(BOTH)", "AddressLine": "15060 JUDSON RD.", "cityStateZip": "SAN ANTONIO TX 78247", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SHAVANO PARK CITY HALL(BOTH)", "AddressLine": "900 SADDLETREE CT.", "cityStateZip": "SHAVANO PARK TX 78231", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SOMERSET CITY HALL(BOTH)", "AddressLine": "7360 EAST 6TH ST., SOMERSET", "cityStateZip": "SOMERSET TX 78069", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "SOUTHSIDE ISD ADMIN BLDG(BOTH)", "AddressLine": "1460 MARTINEZ-LOSOYA RD.", "cityStateZip": "SAN ANTONIO TX 78221", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "ST. MARY'S UNIVERSITY(BOTH)", "AddressLine": "1 CAMINO SANTA MARIA", "cityStateZip": "SAN ANTONIO TX 78228", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "ST. PAUL COMMUNITY CENTER(BOTH)", "AddressLine": "1201 DONALDSON AVE.", "cityStateZip": "SAN ANTONIO TX 78228", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "TAKAS PARK(BOTH)", "AddressLine": "9310 JIM SEAL DR.", "cityStateZip": "WINDCREST TX 78239", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "TEXAS A&M SAN ANTONIO MAYS CENTER(BOTH)", "AddressLine": "1 UNIVERSITY WAY", "cityStateZip": "SAN ANTONIO TX 78224", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "THOUSAND OAKS BRANCH LIBRARY(BOTH)", "AddressLine": "4618 THOUSAND OAKS", "cityStateZip": "SAN ANTONIO TX 78233", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "TOBIN LIBRARY @ OAKWELL(BOTH)", "AddressLine": "4134 HARRY WURZBACH", "cityStateZip": "SAN ANTONIO TX 78209", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "UNIVERSAL CITY LIBRARY(BOTH)", "AddressLine": "100 NORTHVIEW DR.", "cityStateZip": "SAN ANTONIO TX 78148", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "UTSA(BOTH)", "AddressLine": "1 UTSA CIRCLE", "cityStateZip": "SAN ANTONIO TX 78249", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "VAN RAUB ELEMENTARY SCHOOL(BOTH)", "AddressLine": "8776 DIETZ ELKHORN RD.", "cityStateZip": "FAIR OAKS RANCH TX 78015", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "WONDERLAND MALL OF THE AMERICAS(BOTH)", "AddressLine": "4522 FRED RD.", "cityStateZip": "SAN ANTONIO TX 78201", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] },
+
+			{ "name": "WOODLAWN POINTE CENTER FOR COMMUNITY(BOTH)", "AddressLine": "702 DONALDSON AVE.", "cityStateZip": "SAN ANTONIO TX 78201", "hoo": ["10/24/2022-10/28/2022 08:00 AM-06:00 PM", "10/29/2022-10/29/2022 08:00 AM-08:00 PM", "10/30/2022-10/30/2022 12:00 PM-06:00 PM", "10/31/2022-11/04/2022 08:00 AM-08:00 PM"] }
+		]
+
+
+		Date.prototype.addDays = function(days) {
+			var date = new Date(this.valueOf());
+			date.setDate(date.getDate() + days);
+			return date;
+		}
+		let electionDay = new Date('2022-11-08T00:00:00').toLocaleDateString();
+		const earlyVotingArr = earlyVoting.map(function(ev) {
+
+			let r = new RegExp('\\d{2}/\\d{2}/\\d{4}-\\d{2}/\\d{2}/\\d{4}')
+
+			let operatingHours = [];
+			ev.hoo.filter(x => x.match(r)).map(function(x) {
+				let dates = x.match(r)[0];
+				let Hrs = x.replace(r, '').substr(1);
+				let startTimeStr = Hrs.split('-')[0]
+				let endTimeStr = Hrs.split('-')[1]
+				let date1 = new Date(dates.split('-')[0])
+				let date2 = new Date(dates.split('-')[1])
+				let diffTime = Math.abs(date2 - date1);
+				let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+				//console.log(date1)
+				//console.log(date2)
+				let startTime = new Date('1970-01-01T' + mTimeStr(startTimeStr))
+				let endTime = new Date('1970-01-01T' + mTimeStr(endTimeStr))
+
+				if (diffDays == 0) {
+					operatingHours.push({
+						"open": date1.toISOString().split('T')[0] + 'T' + startTime.toISOString().split('T')[1],
+						"close": date2.toISOString().split('T')[0] + 'T' + endTime.toISOString().split('T')[1]
+					});
+				} else {
+					//console.log(date1.getDate())
+					for (i = 0; i < diffDays + 1; i++) {
+						let dateIncrementStart = date1.addDays(i)
+						let dateIncrementEnd = date2.addDays(i)
+
+						dateIncrementStart.setHours(startTime.getHours());
+						dateIncrementStart.setMinutes(startTime.getMinutes());
+						dateIncrementStart.setSeconds(startTime.getSeconds());
+						dateIncrementStart.setMilliseconds(startTime.getMilliseconds());
+
+						dateIncrementEnd.setHours(endTime.getHours());
+						dateIncrementEnd.setMinutes(endTime.getMinutes());
+						dateIncrementEnd.setSeconds(endTime.getSeconds());
+						dateIncrementEnd.setMilliseconds(endTime.getMilliseconds());
+
+
+						operatingHours.push({
+							"open": dateIncrementStart.toISOString(),
+							"close": dateIncrementEnd.toISOString()
+						});
+					}
+				}
+			});
+			let o = {
+				"Name": titleCase(ev.name.replace(/\(both\)/gi, '')),
+				"AddressLine": titleCase(ev.AddressLine),
+				"Locality": titleCase(ev.cityStateZip.split(' TX ')[0]),
+				"AdminDistrict": "TX",
+				"PostalCode": ev.cityStateZip.split(' TX ')[1].trim(),
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": operatingHours
+			}
+			return o;
+		});
+		console.log(earlyVotingArr)
+		function mTimeStr(str) {
+			let rAMPM = new RegExp(' am| pm', 'gi');
+			if (str.match(/am/gi) == null) {
+				let hour = parseInt(str)
+				if (hour != 12) {
+					hour = hour + 12;
+				}
+				hourTxt = ('0' + hour.toString()).slice(-2);
+				return hourTxt + str.replace(rAMPM, '').substr(2) + ':00.000Z';
+			} else {
+				return str.replace(rAMPM, '') + ':00.000Z';
+			}
+		}
+
+
+		function titleCase(txt) {
+			return txt.split(' ').map(x => x.substr(0, 1).toUpperCase() + x.substr(1).toLowerCase()).join(' ');
+		}
+
+	</script>
+
+</body>
+
+</html>

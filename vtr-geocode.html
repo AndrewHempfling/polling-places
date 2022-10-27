@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+		crossorigin="anonymous" />
+	<title>Polling Places</title>
+
+	<style>
+		#leftSection {
+			height: 100vh;
+			position: relative;
+		}
+
+		#rightSection {
+			height: 100vh;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div style="width: 100vw; height: 100vh; display: flex; flex-direction: column">
+		<div>
+			<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+		</div>
+		<div style="background-color: #00ffff20; width: 100vw; height: 100vh; display: flex; flex-grow: 1 1 0">
+			<div class="col-12 col-md-3" id="leftSection">
+				p
+			</div>
+			<div class="col-12 col-md-9" id="rightSection">
+				<div id="mapContainer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h5 id="offcanvasRightLabel">Offcanvas right</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			...
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+	<script>
+
+		const bingKey = 'AoZktRDf56_rJu2MkwaO2mUnOLn5FgKAd5o4V5KKhWzK85flP9UhKcKljSL1a6qL';
+		const locationsURL = 'http://dev.virtualearth.net/REST/v1/Locations?';
+		$.get('vtr.json', function(places) {
+			places.map(function(place) {
+				`postalCode=98052&key={BingMapsKey}`
+				place.geocodeData.o = 'json';
+				place.geocodeData.key = bingKey;
+				let qStr = Object.entries(place.geocodeData).map(x => `${x[0]}=${x[1].replace(/ /g, '%20')}`).join('&');
+				console.log(locationsURL + qStr);
+			});
+		});
+
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,3208 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MainRoot xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:schema id="Place_ds">
+    <xs:element name="Place_ds" ns1:IsDataSet="true" ns1:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Place">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="EntityID" type="xs:string" />
+                <xs:element name="AddressLine" minOccurs="0" type="xs:string" />
+                <xs:element name="Latitude" minOccurs="0" type="xs:double" />
+                <xs:element name="Longitude" minOccurs="0" type="xs:double" />
+                <xs:element name="Locality" minOccurs="0" type="xs:string" />
+                <xs:element name="AdminDistrict" minOccurs="0" type="xs:string" />
+                <xs:element name="PostalCode" minOccurs="0" type="xs:string" />
+                <xs:element name="CountryRegion" minOccurs="0" type="xs:string" />
+                <xs:element name="Name" minOccurs="0" type="xs:string" />
+                <xs:element name="type" minOccurs="0" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" ns1:PrimaryKey="true">
+        <xs:selector xpath=".//Place" />
+        <xs:field xpath="EntityID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Place>
+    <Name>Adams Elementary School</Name>
+    <EntityID>135esouthcrossElectionDayVoting0</EntityID>
+    <type>election-day</type>
+    <AddressLine>135 E. Southcross</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Adams Hill Elementary School</Name>
+    <EntityID>9627adamshilldriveElectionDayVoting1</EntityID>
+    <type>election-day</type>
+    <AddressLine>9627 Adams Hill Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Adante Independent Living</Name>
+    <EntityID>2702cembaloblvdElectionDayVoting2</EntityID>
+    <type>election-day</type>
+    <AddressLine>2702 Cembalo Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Agnes Cotton Academy</Name>
+    <EntityID>1616blancordElectionDayVoting3</EntityID>
+    <type>election-day</type>
+    <AddressLine>1616 Blanco Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Alamo Heights City Hall</Name>
+    <EntityID>6116broadwaystElectionDayVoting4</EntityID>
+    <type>election-day</type>
+    <AddressLine>6116 Broadway St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Alamo Heights United Methodist</Name>
+    <EntityID>825ebasserdElectionDayVoting5</EntityID>
+    <type>election-day</type>
+    <AddressLine>825 E. Basse Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Alamo Stadium Convocation Center</Name>
+    <EntityID>110tuletadrElectionDayVoting6</EntityID>
+    <type>election-day</type>
+    <AddressLine>110 Tuleta Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Alan B. Shepard Middle School</Name>
+    <EntityID>5558rayellisonblvdElectionDayVoting7</EntityID>
+    <type>election-day</type>
+    <AddressLine>5558 Ray Ellison Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Antonio Margil Elementary School</Name>
+    <EntityID>1000perezstreetElectionDayVoting8</EntityID>
+    <type>election-day</type>
+    <AddressLine>1000 Perez Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Artemisia Bowden Academy</Name>
+    <EntityID>515willowstElectionDayVoting9</EntityID>
+    <type>election-day</type>
+    <AddressLine>515 Willow St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Aue Elementary School</Name>
+    <EntityID>24750baywaterstageElectionDayVoting10</EntityID>
+    <type>election-day</type>
+    <AddressLine>24750 Baywater Stage</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ball Academy</Name>
+    <EntityID>343koehlercourtElectionDayVoting11</EntityID>
+    <type>election-day</type>
+    <AddressLine>343 Koehler Court</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Barkley-Ruiz Elementary School</Name>
+    <EntityID>1111snavidadstreetElectionDayVoting12</EntityID>
+    <type>election-day</type>
+    <AddressLine>1111 S. Navidad Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Beacon Hill Academy</Name>
+    <EntityID>1411washbyplElectionDayVoting13</EntityID>
+    <type>election-day</type>
+    <AddressLine>1411 W. Ashby Pl.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Beard Elementary School</Name>
+    <EntityID>8725sonomapkwyElectionDayVoting14</EntityID>
+    <type>election-day</type>
+    <AddressLine>8725 Sonoma Pkwy</AddressLine>
+    <Locality>Helotes</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bella Cameron Elementary School</Name>
+    <EntityID>3635belgiumdrElectionDayVoting15</EntityID>
+    <type>election-day</type>
+    <AddressLine>3635 Belgium Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bethany Romanian Church</Name>
+    <EntityID>26347boernestagerdElectionDayVoting16</EntityID>
+    <type>election-day</type>
+    <AddressLine>26347 Boerne Stage Rd.</AddressLine>
+    <Locality>Boerne</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bexar County Elections(Both)</Name>
+    <EntityID>1103sfrioElectionDayVoting17</EntityID>
+    <type>election-day</type>
+    <AddressLine>1103 S. Frio</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bexar County Justice Center(Both)</Name>
+    <EntityID>300dolorosaElectionDayVoting18</EntityID>
+    <type>election-day</type>
+    <AddressLine>300 Dolorosa</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Big Country Elementary School</Name>
+    <EntityID>2250pueroadElectionDayVoting19</EntityID>
+    <type>election-day</type>
+    <AddressLine>2250 Pue Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Blossom Athletic Center</Name>
+    <EntityID>12002jonesmaltsbergerrdElectionDayVoting20</EntityID>
+    <type>election-day</type>
+    <AddressLine>12002 Jones Maltsberger Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bob Hope Elementary School</Name>
+    <EntityID>3022reformaElectionDayVoting21</EntityID>
+    <type>election-day</type>
+    <AddressLine>3022 Reforma</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bobbye Behlau Elementary School</Name>
+    <EntityID>2355camplightwayElectionDayVoting22</EntityID>
+    <type>election-day</type>
+    <AddressLine>2355 Camp Light Way</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bode Community Center</Name>
+    <EntityID>900rigsbyElectionDayVoting23</EntityID>
+    <type>election-day</type>
+    <AddressLine>900 Rigsby</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Boone Elementary School</Name>
+    <EntityID>6614springtimedrElectionDayVoting24</EntityID>
+    <type>election-day</type>
+    <AddressLine>6614 Spring Time Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bradley Middle School</Name>
+    <EntityID>14819heimerrdElectionDayVoting25</EntityID>
+    <type>election-day</type>
+    <AddressLine>14819 Heimer Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Brandeis High School</Name>
+    <EntityID>13011kylesealepkwyElectionDayVoting26</EntityID>
+    <type>election-day</type>
+    <AddressLine>13011 Kyle Seale Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Brauchle Elementary School</Name>
+    <EntityID>8555bowenscrossingElectionDayVoting27</EntityID>
+    <type>election-day</type>
+    <AddressLine>8555 Bowens Crossing</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Brentwood Steam School Of Innovation</Name>
+    <EntityID>1626wthompsonplaceElectionDayVoting28</EntityID>
+    <type>election-day</type>
+    <AddressLine>1626 W. Thompson Place</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Brookhollow Branch Library(Both)</Name>
+    <EntityID>530heimerrdElectionDayVoting29</EntityID>
+    <type>election-day</type>
+    <AddressLine>530 Heimer Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bulverde Creek Elementary School</Name>
+    <EntityID>3839canyonpkwyElectionDayVoting30</EntityID>
+    <type>election-day</type>
+    <AddressLine>3839 Canyon Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Burke Elementary School</Name>
+    <EntityID>10111terraoakElectionDayVoting31</EntityID>
+    <type>election-day</type>
+    <AddressLine>10111 Terra Oak</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bush Middle School</Name>
+    <EntityID>1500evansrdElectionDayVoting32</EntityID>
+    <type>election-day</type>
+    <AddressLine>1500 Evans Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Candlewood Elementary School</Name>
+    <EntityID>3635candleglenElectionDayVoting33</EntityID>
+    <type>election-day</type>
+    <AddressLine>3635 Candleglen</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Carlos Coon Elementary School</Name>
+    <EntityID>3114timberviewdriveElectionDayVoting34</EntityID>
+    <type>election-day</type>
+    <AddressLine>3114 Timber View Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Carnahan Elementary School</Name>
+    <EntityID>6839babcockrdElectionDayVoting35</EntityID>
+    <type>election-day</type>
+    <AddressLine>6839 Babcock Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Carson Elementary School</Name>
+    <EntityID>8151oldtezelrdElectionDayVoting36</EntityID>
+    <type>election-day</type>
+    <AddressLine>8151 Old Tezel Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Castle Hills City Hall(Both)</Name>
+    <EntityID>209lemonwoodElectionDayVoting37</EntityID>
+    <type>election-day</type>
+    <AddressLine>209 Lemonwood</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Central Library</Name>
+    <EntityID>600soledadElectionDayVoting38</EntityID>
+    <type>election-day</type>
+    <AddressLine>600 Soledad</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Charles Graebner Elementary School</Name>
+    <EntityID>530hooverstreetElectionDayVoting39</EntityID>
+    <type>election-day</type>
+    <AddressLine>530 Hoover Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>China Grove City Hall</Name>
+    <EntityID>2412fm1516sElectionDayVoting40</EntityID>
+    <type>election-day</type>
+    <AddressLine>2412 Fm 1516 S.</AddressLine>
+    <Locality>China Grove</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Christa Mcauliffe Middle School</Name>
+    <EntityID>9390swloop410ElectionDayVoting41</EntityID>
+    <type>election-day</type>
+    <AddressLine>9390 Sw Loop 410</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Christian Family Baptist Church(Both)</Name>
+    <EntityID>1589grossenbacherElectionDayVoting42</EntityID>
+    <type>election-day</type>
+    <AddressLine>1589 Grossenbacher</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Church Of Reconciliation</Name>
+    <EntityID>8900starcrestElectionDayVoting43</EntityID>
+    <type>election-day</type>
+    <AddressLine>8900 Starcrest</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Churchill High School</Name>
+    <EntityID>12049blancordElectionDayVoting44</EntityID>
+    <type>election-day</type>
+    <AddressLine>12049 Blanco Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cibolo Green Elementary School</Name>
+    <EntityID>24315bulverdegreenElectionDayVoting45</EntityID>
+    <type>election-day</type>
+    <AddressLine>24315 Bulverde Green</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>City Of Sandy Oaks Municipal Bldg</Name>
+    <EntityID>22780priestrdElectionDayVoting46</EntityID>
+    <type>election-day</type>
+    <AddressLine>22780 Priest Rd.</AddressLine>
+    <Locality>Sandy Oaks</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>City Of Von Ormy Municipal Court</Name>
+    <EntityID>14729quarterhorseElectionDayVoting47</EntityID>
+    <type>election-day</type>
+    <AddressLine>14729 Quarter Horse</AddressLine>
+    <Locality>Von Ormy</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Clark High School</Name>
+    <EntityID>5150dezavalardElectionDayVoting48</EntityID>
+    <type>election-day</type>
+    <AddressLine>5150 De Zavala Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Claude Black Community Center(Both)</Name>
+    <EntityID>2805ecommerceElectionDayVoting49</EntityID>
+    <type>election-day</type>
+    <AddressLine>2805 E. Commerce</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Clear Spring Elementary School</Name>
+    <EntityID>4311clearspringdrElectionDayVoting50</EntityID>
+    <type>election-day</type>
+    <AddressLine>4311 Clear Spring Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cody Branch Library(Both)</Name>
+    <EntityID>11441vancejacksonElectionDayVoting51</EntityID>
+    <type>election-day</type>
+    <AddressLine>11441 Vance Jackson</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cody Elementary School</Name>
+    <EntityID>10403dugasdriveElectionDayVoting52</EntityID>
+    <type>election-day</type>
+    <AddressLine>10403 Dugas Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cole Elementary School</Name>
+    <EntityID>13185tillmanridgeElectionDayVoting53</EntityID>
+    <type>election-day</type>
+    <AddressLine>13185 Tillman Ridge</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Collier Elementary School</Name>
+    <EntityID>834wsouthcrossElectionDayVoting54</EntityID>
+    <type>election-day</type>
+    <AddressLine>834 W. Southcross</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Collins Garden Branch Library</Name>
+    <EntityID>200nparkblvdElectionDayVoting55</EntityID>
+    <type>election-day</type>
+    <AddressLine>200 N. Park Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Colonial Hills United Methodist Church</Name>
+    <EntityID>5247vancejacksonElectionDayVoting56</EntityID>
+    <type>election-day</type>
+    <AddressLine>5247 Vance Jackson</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Colonies North Elementary School</Name>
+    <EntityID>9915northhamptonElectionDayVoting57</EntityID>
+    <type>election-day</type>
+    <AddressLine>9915 Northhampton</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Community Alliance For Traffic Safety</Name>
+    <EntityID>7719piperslaneElectionDayVoting58</EntityID>
+    <type>election-day</type>
+    <AddressLine>7719 Pipers Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Connally Middle School</Name>
+    <EntityID>8661silentsunriseElectionDayVoting59</EntityID>
+    <type>election-day</type>
+    <AddressLine>8661 Silent Sunrise</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Copernicus Comm. Center(Both)</Name>
+    <EntityID>5003lordrdElectionDayVoting60</EntityID>
+    <type>election-day</type>
+    <AddressLine>5003 Lord Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Coronado Village Elem. School</Name>
+    <EntityID>213amistadblvdElectionDayVoting61</EntityID>
+    <type>election-day</type>
+    <AddressLine>213 Amistad Blvd.</AddressLine>
+    <Locality>Universal City</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cortez Branch Library(Both)</Name>
+    <EntityID>2803hunterblvdElectionDayVoting62</EntityID>
+    <type>election-day</type>
+    <AddressLine>2803 Hunter Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Crockett Academy</Name>
+    <EntityID>2215moralesstElectionDayVoting63</EntityID>
+    <type>election-day</type>
+    <AddressLine>2215 Morales St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cross Mountain Church</Name>
+    <EntityID>24891boernestagerdElectionDayVoting64</EntityID>
+    <type>election-day</type>
+    <AddressLine>24891 Boerne Stage Rd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Davis Middle School</Name>
+    <EntityID>4702ehoustonstreetElectionDayVoting65</EntityID>
+    <type>election-day</type>
+    <AddressLine>4702 E. Houston Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Davis Scott Ymca</Name>
+    <EntityID>1213iowastreetElectionDayVoting66</EntityID>
+    <type>election-day</type>
+    <AddressLine>1213 Iowa Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Dellview Elementary School</Name>
+    <EntityID>7235dewhurstrdElectionDayVoting67</EntityID>
+    <type>election-day</type>
+    <AddressLine>7235 Dewhurst Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>E.T. Wrenn Middle School</Name>
+    <EntityID>627sacmerdElectionDayVoting68</EntityID>
+    <type>election-day</type>
+    <AddressLine>627 S. Acme Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>East Central High School</Name>
+    <EntityID>7173fm1628ElectionDayVoting69</EntityID>
+    <type>election-day</type>
+    <AddressLine>7173 Fm 1628</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>East Central Isd Admin Building(Both)</Name>
+    <EntityID>6634newsulphurspringsrdElectionDayVoting70</EntityID>
+    <type>election-day</type>
+    <AddressLine>6634 New Sulphur Springs Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>East Terrell Hills Elementary School</Name>
+    <EntityID>4415bloomdaleElectionDayVoting71</EntityID>
+    <type>election-day</type>
+    <AddressLine>4415 Bloomdale</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ed White Middle School</Name>
+    <EntityID>7800midcrownElectionDayVoting72</EntityID>
+    <type>election-day</type>
+    <AddressLine>7800 Midcrown</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Edgewood Gym</Name>
+    <EntityID>4133eldridgeaveElectionDayVoting73</EntityID>
+    <type>election-day</type>
+    <AddressLine>4133 Eldridge Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Eisenhower Middle School</Name>
+    <EntityID>8231blancordElectionDayVoting74</EntityID>
+    <type>election-day</type>
+    <AddressLine>8231 Blanco Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>El Dorado Elementary School</Name>
+    <EntityID>12634elsenderoElectionDayVoting75</EntityID>
+    <type>election-day</type>
+    <AddressLine>12634 El Sendero</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ellison Elementary School</Name>
+    <EntityID>7132oakdrElectionDayVoting76</EntityID>
+    <type>election-day</type>
+    <AddressLine>7132 Oak Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Elmendorf City Hall(Both)</Name>
+    <EntityID>4133eldridgeaveElectionDayVoting77</EntityID>
+    <type>election-day</type>
+    <AddressLine>4133 Eldridge Ave.</AddressLine>
+    <Locality>Elmendorf</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Eloise Japhet Academy</Name>
+    <EntityID>314astorElectionDayVoting78</EntityID>
+    <type>election-day</type>
+    <AddressLine>314 Astor</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Elolf Steam Academy</Name>
+    <EntityID>6335beechtrailElectionDayVoting79</EntityID>
+    <type>election-day</type>
+    <AddressLine>6335 Beech Trail</AddressLine>
+    <Locality>Converse</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Elrod Elementary School</Name>
+    <EntityID>8885heathcircledriveElectionDayVoting80</EntityID>
+    <type>election-day</type>
+    <AddressLine>8885 Heath Circle Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Encino Branch Library(Both)</Name>
+    <EntityID>2515eevansrdElectionDayVoting81</EntityID>
+    <type>election-day</type>
+    <AddressLine>2515 E. Evans Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Esparza Elementary School</Name>
+    <EntityID>5700hemphilldriveElectionDayVoting82</EntityID>
+    <type>election-day</type>
+    <AddressLine>5700 Hemphill Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Evers Elementary School</Name>
+    <EntityID>1715richlandhillsdriveElectionDayVoting83</EntityID>
+    <type>election-day</type>
+    <AddressLine>1715 Richland Hills Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Faith Lutheran Church</Name>
+    <EntityID>14819jonesmaltsbergerrdElectionDayVoting84</EntityID>
+    <type>election-day</type>
+    <AddressLine>14819 Jones Maltsberger Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Fernandez Elementary School</Name>
+    <EntityID>6845ridgebrookstElectionDayVoting85</EntityID>
+    <type>election-day</type>
+    <AddressLine>6845 Ridgebrook St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Fields Elementary School</Name>
+    <EntityID>9570fm1560ElectionDayVoting86</EntityID>
+    <type>election-day</type>
+    <AddressLine>9570 Fm 1560</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Fire Station #3</Name>
+    <EntityID>11917lowerseguinrdElectionDayVoting87</EntityID>
+    <type>election-day</type>
+    <AddressLine>11917 Lower Seguin Rd.</AddressLine>
+    <Locality>Schertz</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>First Chinese Baptist Church</Name>
+    <EntityID>5481pruerdElectionDayVoting88</EntityID>
+    <type>election-day</type>
+    <AddressLine>5481 Prue Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Five Palms Elementary School</Name>
+    <EntityID>7138fivepalmsdriveElectionDayVoting89</EntityID>
+    <type>election-day</type>
+    <AddressLine>7138 Five Palms Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Folks Middle School</Name>
+    <EntityID>9855swaybackranchElectionDayVoting90</EntityID>
+    <type>election-day</type>
+    <AddressLine>9855 Swayback Ranch</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Frank Garrett Multi Service Center(Both)</Name>
+    <EntityID>1226nw18thstreetElectionDayVoting91</EntityID>
+    <type>election-day</type>
+    <AddressLine>1226 Nw 18Th Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Frank Madla Elementary School</Name>
+    <EntityID>6100royalgatedriveElectionDayVoting92</EntityID>
+    <type>election-day</type>
+    <AddressLine>6100 Royalgate Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Galm Elementary School</Name>
+    <EntityID>1454saxohilldriveElectionDayVoting93</EntityID>
+    <type>election-day</type>
+    <AddressLine>1454 Saxohill Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Gardendale Early Learning Program</Name>
+    <EntityID>1731dahlgreenavenueElectionDayVoting94</EntityID>
+    <type>election-day</type>
+    <AddressLine>1731 Dahlgreen Avenue</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Gillette Elementary School</Name>
+    <EntityID>625gilletteblvdElectionDayVoting95</EntityID>
+    <type>election-day</type>
+    <AddressLine>625 Gillette Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Glenoaks Elementary School</Name>
+    <EntityID>5103newcomedriveElectionDayVoting96</EntityID>
+    <type>election-day</type>
+    <AddressLine>5103 Newcome Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Granados Adult And Senior Center</Name>
+    <EntityID>500freilingElectionDayVoting97</EntityID>
+    <type>election-day</type>
+    <AddressLine>500 Freiling</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Great Northwest Branch Library(Both)</Name>
+    <EntityID>9050wellwoodElectionDayVoting98</EntityID>
+    <type>election-day</type>
+    <AddressLine>9050 Wellwood</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Grey Forest Community Center</Name>
+    <EntityID>18249sherwoodtrailElectionDayVoting99</EntityID>
+    <type>election-day</type>
+    <AddressLine>18249 Sherwood Trail</AddressLine>
+    <Locality>Grey Forest</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Guerra Branch Library(Both)</Name>
+    <EntityID>7978wmilitarydriveElectionDayVoting100</EntityID>
+    <type>election-day</type>
+    <AddressLine>7978 W. Military Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Gus Garcia University School</Name>
+    <EntityID>3306ruizstreetElectionDayVoting101</EntityID>
+    <type>election-day</type>
+    <AddressLine>3306 Ruiz Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hardy Oak Elementary School</Name>
+    <EntityID>22900hardyoakblvdElectionDayVoting102</EntityID>
+    <type>election-day</type>
+    <AddressLine>22900 Hardy Oak Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Harmony Elementary School</Name>
+    <EntityID>10625greenlakedrElectionDayVoting103</EntityID>
+    <type>election-day</type>
+    <AddressLine>10625 Green Lake Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Harmony Hills Elementary School</Name>
+    <EntityID>10727memorylaneElectionDayVoting104</EntityID>
+    <type>election-day</type>
+    <AddressLine>10727 Memory Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Harry H. Rogers Middle School</Name>
+    <EntityID>314galwaydrElectionDayVoting105</EntityID>
+    <type>election-day</type>
+    <AddressLine>314 Galway Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hartman Center Ii</Name>
+    <EntityID>1202wbittersbldg1ElectionDayVoting106</EntityID>
+    <type>election-day</type>
+    <AddressLine>1202 W. Bitters, Bldg 1</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hatchett Elementary</Name>
+    <EntityID>10700ingramrdElectionDayVoting107</EntityID>
+    <type>election-day</type>
+    <AddressLine>10700 Ingram Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Health Careers High School</Name>
+    <EntityID>4646hamiltonwolfeElectionDayVoting108</EntityID>
+    <type>election-day</type>
+    <AddressLine>4646 Hamilton Wolfe</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hector Garcia Middle School</Name>
+    <EntityID>14900kylesealeparkwayElectionDayVoting109</EntityID>
+    <type>election-day</type>
+    <AddressLine>14900 Kyle Seale Parkway</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Helotes City Hall(Both)</Name>
+    <EntityID>12951banderaroadElectionDayVoting110</EntityID>
+    <type>election-day</type>
+    <AddressLine>12951 Bandera Road</AddressLine>
+    <Locality>Helotes</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Helotes Elementary School</Name>
+    <EntityID>13878riggsrdElectionDayVoting111</EntityID>
+    <type>election-day</type>
+    <AddressLine>13878 Riggs Rd.</AddressLine>
+    <Locality>Helotes</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Henderson Elementary School</Name>
+    <EntityID>14605kallisonbendElectionDayVoting112</EntityID>
+    <type>election-day</type>
+    <AddressLine>14605 Kallison Bend</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Herman Hirsch Elementary School</Name>
+    <EntityID>4826seabreezeElectionDayVoting113</EntityID>
+    <type>election-day</type>
+    <AddressLine>4826 Sea Breeze</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hidden Cove Elementary</Name>
+    <EntityID>5102tradingpostdrElectionDayVoting114</EntityID>
+    <type>election-day</type>
+    <AddressLine>5102 Trading Post Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hidden Forest Elementary School</Name>
+    <EntityID>802silverspruceElectionDayVoting115</EntityID>
+    <type>election-day</type>
+    <AddressLine>802 Silver Spruce</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Highland Hills Elementary School</Name>
+    <EntityID>734glamisElectionDayVoting116</EntityID>
+    <type>election-day</type>
+    <AddressLine>734 Glamis</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Highlands High School</Name>
+    <EntityID>3118elginaveElectionDayVoting117</EntityID>
+    <type>election-day</type>
+    <AddressLine>3118 Elgin Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hill Country Retreat</Name>
+    <EntityID>4550delwebbblvdElectionDayVoting118</EntityID>
+    <type>election-day</type>
+    <AddressLine>4550 Del Webb Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hill Country Village City Hall</Name>
+    <EntityID>116aspenlaneElectionDayVoting119</EntityID>
+    <type>election-day</type>
+    <AddressLine>116 Aspen Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hill Middle School</Name>
+    <EntityID>21314bulverderdElectionDayVoting120</EntityID>
+    <type>election-day</type>
+    <AddressLine>21314 Bulverde Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hollywood Park City Hall</Name>
+    <EntityID>2meccadrElectionDayVoting121</EntityID>
+    <type>election-day</type>
+    <AddressLine>2 Mecca Dr.</AddressLine>
+    <Locality>Hollywood Park</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hope Church</Name>
+    <EntityID>18850redlandrdElectionDayVoting122</EntityID>
+    <type>election-day</type>
+    <AddressLine>18850 Redland Rd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Huebner Elementary School</Name>
+    <EntityID>16311huebnerrdElectionDayVoting123</EntityID>
+    <type>election-day</type>
+    <AddressLine>16311 Huebner Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Huisache Avenue Baptist Church</Name>
+    <EntityID>1339huisacheElectionDayVoting124</EntityID>
+    <type>election-day</type>
+    <AddressLine>1339 Huisache</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Hunters Creek Swim And Racquet Club</Name>
+    <EntityID>3630hunterscirclestElectionDayVoting125</EntityID>
+    <type>election-day</type>
+    <AddressLine>3630 Hunters Circle St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Igo Branch Library(Both)</Name>
+    <EntityID>13330kylesealeparkwayElectionDayVoting126</EntityID>
+    <type>election-day</type>
+    <AddressLine>13330 Kyle Seale Parkway</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Indian Springs Elementary School</Name>
+    <EntityID>25751wildernessoakElectionDayVoting127</EntityID>
+    <type>election-day</type>
+    <AddressLine>25751 Wilderness Oak</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Inez Foster Elementary School</Name>
+    <EntityID>6718pecanvalleyElectionDayVoting128</EntityID>
+    <type>election-day</type>
+    <AddressLine>6718 Pecan Valley</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>James Russell Lowell Middle School</Name>
+    <EntityID>919thompsonplaceElectionDayVoting129</EntityID>
+    <type>election-day</type>
+    <AddressLine>919 Thompson Place</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Joe Ward Recreation Center</Name>
+    <EntityID>435esunshinedriveElectionDayVoting130</EntityID>
+    <type>election-day</type>
+    <AddressLine>435 E. Sunshine Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>John Glenn Elementary School</Name>
+    <EntityID>2385horaldriveElectionDayVoting131</EntityID>
+    <type>election-day</type>
+    <AddressLine>2385 Horal Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>John Greenleaf Whittier Middle School</Name>
+    <EntityID>2101edisondriveElectionDayVoting132</EntityID>
+    <type>election-day</type>
+    <AddressLine>2101 Edison Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>John Hoffmann Elementary School</Name>
+    <EntityID>12118volunteerparkwayElectionDayVoting133</EntityID>
+    <type>election-day</type>
+    <AddressLine>12118 Volunteer Parkway</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>John Marshall High School</Name>
+    <EntityID>8000lobolnElectionDayVoting134</EntityID>
+    <type>election-day</type>
+    <AddressLine>8000 Lobo Ln.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Johnston Branch Library(Both)</Name>
+    <EntityID>6307sunvalleydriveElectionDayVoting135</EntityID>
+    <type>election-day</type>
+    <AddressLine>6307 Sun Valley Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Judson Isd Erc</Name>
+    <EntityID>8205palisadesdriveElectionDayVoting136</EntityID>
+    <type>election-day</type>
+    <AddressLine>8205 Palisades Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Judson Isd Performing Arts Center</Name>
+    <EntityID>9443schaeferrdElectionDayVoting137</EntityID>
+    <type>election-day</type>
+    <AddressLine>9443 Schaefer Rd.</AddressLine>
+    <Locality>Converse</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kallison Elementary School</Name>
+    <EntityID>8610ranchviewElectionDayVoting138</EntityID>
+    <type>election-day</type>
+    <AddressLine>8610 Ranch View</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kate Schenck Elementary School</Name>
+    <EntityID>101kateschenckElectionDayVoting139</EntityID>
+    <type>election-day</type>
+    <AddressLine>101 Kate Schenck</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kenwood Community Center</Name>
+    <EntityID>305dorastreetElectionDayVoting140</EntityID>
+    <type>election-day</type>
+    <AddressLine>305 Dora Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kinder Ranch Elementary</Name>
+    <EntityID>2035kinderpkwyElectionDayVoting141</EntityID>
+    <type>election-day</type>
+    <AddressLine>2035 Kinder Pkwy.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kingsborough Middle School</Name>
+    <EntityID>422ashleyroadElectionDayVoting142</EntityID>
+    <type>election-day</type>
+    <AddressLine>422 Ashley Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kirby City Hall(Both)</Name>
+    <EntityID>112baumanstElectionDayVoting143</EntityID>
+    <type>election-day</type>
+    <AddressLine>112 Bauman St.</AddressLine>
+    <Locality>Kirby</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kitty Hawk Middle School</Name>
+    <EntityID>840cimarrontrailElectionDayVoting144</EntityID>
+    <type>election-day</type>
+    <AddressLine>840 Cimarron Trail</AddressLine>
+    <Locality>Universal City</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Knowlton Elementary School</Name>
+    <EntityID>9500timberpathElectionDayVoting145</EntityID>
+    <type>election-day</type>
+    <AddressLine>9500 Timber Path</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Krueger Elementary School</Name>
+    <EntityID>9900wildhorseparkwayElectionDayVoting146</EntityID>
+    <type>election-day</type>
+    <AddressLine>9900 Wildhorse Parkway</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Krueger Middle School</Name>
+    <EntityID>438lanarkdrElectionDayVoting147</EntityID>
+    <type>election-day</type>
+    <AddressLine>438 Lanark Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Lanier High School</Name>
+    <EntityID>1514wcesarchavezElectionDayVoting148</EntityID>
+    <type>election-day</type>
+    <AddressLine>1514 W. Cesar Chavez</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Larkspur Elementary School</Name>
+    <EntityID>1802larkspurElectionDayVoting149</EntityID>
+    <type>election-day</type>
+    <AddressLine>1802 Larkspur</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Las Palmas Branch Library(Both)</Name>
+    <EntityID>515castrovillerdElectionDayVoting150</EntityID>
+    <type>election-day</type>
+    <AddressLine>515 Castroville Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Laurel Heights United Methodist Church</Name>
+    <EntityID>227wwoodlawnaveElectionDayVoting151</EntityID>
+    <type>election-day</type>
+    <AddressLine>227 W Woodlawn Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Leon Springs Elementary School</Name>
+    <EntityID>23881ih10wElectionDayVoting152</EntityID>
+    <type>election-day</type>
+    <AddressLine>23881 Ih 10 W</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Leon Valley Conference Center(Both)</Name>
+    <EntityID>6427eversrdElectionDayVoting153</EntityID>
+    <type>election-day</type>
+    <AddressLine>6427 Evers Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Lewis Elementary School</Name>
+    <EntityID>1000seascapeElectionDayVoting154</EntityID>
+    <type>election-day</type>
+    <AddressLine>1000 Seascape</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Lions Field Adult And Senior Center(Both)</Name>
+    <EntityID>2809broadwaystElectionDayVoting155</EntityID>
+    <type>election-day</type>
+    <AddressLine>2809 Broadway St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Longfellow Middle School</Name>
+    <EntityID>1130esunshinedriveElectionDayVoting156</EntityID>
+    <type>election-day</type>
+    <AddressLine>1130 E. Sunshine Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Longs Creek Elementary School</Name>
+    <EntityID>15806oconnorrdElectionDayVoting157</EntityID>
+    <type>election-day</type>
+    <AddressLine>15806 O'Connor Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Lopez Middle School</Name>
+    <EntityID>23103hardyoakblvdElectionDayVoting158</EntityID>
+    <type>election-day</type>
+    <AddressLine>23103 Hardy Oak Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Luckey Ranch Elementary School</Name>
+    <EntityID>12045luckeyriverElectionDayVoting159</EntityID>
+    <type>election-day</type>
+    <AddressLine>12045 Luckey River</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Luther Burbank High School</Name>
+    <EntityID>1002edwardsstreetElectionDayVoting160</EntityID>
+    <type>election-day</type>
+    <AddressLine>1002 Edwards Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Madison High School</Name>
+    <EntityID>5005stahlrdElectionDayVoting161</EntityID>
+    <type>election-day</type>
+    <AddressLine>5005 Stahl Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Marin B.Fenwick Academy</Name>
+    <EntityID>1930waverlyaveElectionDayVoting162</EntityID>
+    <type>election-day</type>
+    <AddressLine>1930 Waverly Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Martin Luther King Jr. Academy</Name>
+    <EntityID>3501martinlutherkingdrElectionDayVoting163</EntityID>
+    <type>election-day</type>
+    <AddressLine>3501 Martin Luther King Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mary Michael Elementary School</Name>
+    <EntityID>3155quietplaindriveElectionDayVoting164</EntityID>
+    <type>election-day</type>
+    <AddressLine>3155 Quiet Plain Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Maverick Branch Library(Both)</Name>
+    <EntityID>8700mysticparkElectionDayVoting165</EntityID>
+    <type>election-day</type>
+    <AddressLine>8700 Mystic Park</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>May Elementary School</Name>
+    <EntityID>15707chasehillblvdElectionDayVoting166</EntityID>
+    <type>election-day</type>
+    <AddressLine>15707 Chase Hill Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mccreless Library(Both)</Name>
+    <EntityID>1023adastElectionDayVoting167</EntityID>
+    <type>election-day</type>
+    <AddressLine>1023 Ada St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mcdermott Elementary School</Name>
+    <EntityID>5111usaablvdElectionDayVoting168</EntityID>
+    <type>election-day</type>
+    <AddressLine>5111 Usaa Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mead Elementary School</Name>
+    <EntityID>3803midhorizondrElectionDayVoting169</EntityID>
+    <type>election-day</type>
+    <AddressLine>3803 Midhorizon Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Meadow Village Elementary School</Name>
+    <EntityID>1406meadowwaydriveElectionDayVoting170</EntityID>
+    <type>election-day</type>
+    <AddressLine>1406 Meadow Way Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Metzger Middle School</Name>
+    <EntityID>7475binzenglemanrdElectionDayVoting171</EntityID>
+    <type>election-day</type>
+    <AddressLine>7475 Binz-Engleman Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Miguel Carrillo, Jr. Elementary School</Name>
+    <EntityID>500priceaveElectionDayVoting172</EntityID>
+    <type>election-day</type>
+    <AddressLine>500 Price Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Miller'S Point Elementary School</Name>
+    <EntityID>7027mistyridgeElectionDayVoting173</EntityID>
+    <type>election-day</type>
+    <AddressLine>7027 Misty Ridge</AddressLine>
+    <Locality>Converse</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mirabeau B. Lamar Elementary School</Name>
+    <EntityID>201parlandElectionDayVoting174</EntityID>
+    <type>election-day</type>
+    <AddressLine>201 Parland</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mireles Elementary School</Name>
+    <EntityID>12260rockwalldriveElectionDayVoting175</EntityID>
+    <type>election-day</type>
+    <AddressLine>12260 Rockwall Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mission Academy</Name>
+    <EntityID>9210spresaElectionDayVoting176</EntityID>
+    <type>election-day</type>
+    <AddressLine>9210 S. Presa</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mission Branch Library(Both)</Name>
+    <EntityID>3134rooseveltaveElectionDayVoting177</EntityID>
+    <type>election-day</type>
+    <AddressLine>3134 Roosevelt Ave</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mission Del Lago Community Center</Name>
+    <EntityID>2301dellagopkwyElectionDayVoting178</EntityID>
+    <type>election-day</type>
+    <AddressLine>2301 Del Lago Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Montgomery Elementary School</Name>
+    <EntityID>7047montgomerydrElectionDayVoting179</EntityID>
+    <type>election-day</type>
+    <AddressLine>7047 Montgomery Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mora Elementary School</Name>
+    <EntityID>1520americanlotusElectionDayVoting180</EntityID>
+    <type>election-day</type>
+    <AddressLine>1520 American Lotus</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mount Calvary Lutheran Church</Name>
+    <EntityID>308mountcalvarydrElectionDayVoting181</EntityID>
+    <type>election-day</type>
+    <AddressLine>308 Mount Calvary Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Murnin Elementary School</Name>
+    <EntityID>9019dugasElectionDayVoting182</EntityID>
+    <type>election-day</type>
+    <AddressLine>9019 Dugas</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Neff Elementary School</Name>
+    <EntityID>5227eversrdElectionDayVoting183</EntityID>
+    <type>election-day</type>
+    <AddressLine>5227 Evers Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Nichols Elementary School</Name>
+    <EntityID>9560braunrdElectionDayVoting184</EntityID>
+    <type>election-day</type>
+    <AddressLine>9560 Braun Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Nimitz Middle School</Name>
+    <EntityID>5426blancordElectionDayVoting185</EntityID>
+    <type>election-day</type>
+    <AddressLine>5426 Blanco Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northeast Lakeview College</Name>
+    <EntityID>1201kittyhawkrdElectionDayVoting186</EntityID>
+    <type>election-day</type>
+    <AddressLine>1201 Kitty Hawk Rd</AddressLine>
+    <Locality>Universal City</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northern Hills Elementary School</Name>
+    <EntityID>13901higginsrdElectionDayVoting187</EntityID>
+    <type>election-day</type>
+    <AddressLine>13901 Higgins Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northside Activity Center(Both)</Name>
+    <EntityID>7001culebrardElectionDayVoting188</EntityID>
+    <type>election-day</type>
+    <AddressLine>7001 Culebra Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northwest Church Of Christ</Name>
+    <EntityID>9681wloop1604nElectionDayVoting189</EntityID>
+    <type>election-day</type>
+    <AddressLine>9681 W. Loop 1604 N.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northwest Crossing Elementary School</Name>
+    <EntityID>10255doverrdgElectionDayVoting190</EntityID>
+    <type>election-day</type>
+    <AddressLine>10255 Dover Rdg.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northwest Vista College(Both)</Name>
+    <EntityID>3535nellisondriveElectionDayVoting191</EntityID>
+    <type>election-day</type>
+    <AddressLine>3535 N. Ellison Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northwood Elementary School</Name>
+    <EntityID>519pikeroadElectionDayVoting192</EntityID>
+    <type>election-day</type>
+    <AddressLine>519 Pike Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Oak Grove Elementary School</Name>
+    <EntityID>3250nacogdochesroadElectionDayVoting193</EntityID>
+    <type>election-day</type>
+    <AddressLine>3250 Nacogdoches Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Oak Hills Terrace Elementary School</Name>
+    <EntityID>5710carygrantdrElectionDayVoting194</EntityID>
+    <type>election-day</type>
+    <AddressLine>5710 Cary Grant Dr</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Oak Meadow United Methodist Church</Name>
+    <EntityID>2740huntersgreenElectionDayVoting195</EntityID>
+    <type>election-day</type>
+    <AddressLine>2740 Hunters Green</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Old Converse City Hall(Both)</Name>
+    <EntityID>405sseguinroadElectionDayVoting196</EntityID>
+    <type>election-day</type>
+    <AddressLine>405 S. Seguin Road</AddressLine>
+    <Locality>Converse</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Olmos Elementary School</Name>
+    <EntityID>1103allenadrElectionDayVoting197</EntityID>
+    <type>election-day</type>
+    <AddressLine>1103 Allena Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Olmos Park City Hall(Both)</Name>
+    <EntityID>120elpradodrwElectionDayVoting198</EntityID>
+    <type>election-day</type>
+    <AddressLine>120 El Prado Dr. W.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ott Elementary School</Name>
+    <EntityID>100ngrosenbacherroadElectionDayVoting199</EntityID>
+    <type>election-day</type>
+    <AddressLine>100 N Grosenbacher Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Our Lady Of The Lake University(Both)</Name>
+    <EntityID>411sw24thstreetElectionDayVoting200</EntityID>
+    <type>election-day</type>
+    <AddressLine>411 S.W. 24Th Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Palo Alto College(Both)</Name>
+    <EntityID>1400wvillaretblvdElectionDayVoting201</EntityID>
+    <type>election-day</type>
+    <AddressLine>1400 W. Villaret Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Park Village Elementary School</Name>
+    <EntityID>5855midcrownElectionDayVoting202</EntityID>
+    <type>election-day</type>
+    <AddressLine>5855 Midcrown</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Parman Branch Library At Stone Oak(Both)</Name>
+    <EntityID>20735wildernessoakElectionDayVoting203</EntityID>
+    <type>election-day</type>
+    <AddressLine>20735 Wilderness Oak</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Paschall Elementary School</Name>
+    <EntityID>6351lakeviewdrElectionDayVoting204</EntityID>
+    <type>election-day</type>
+    <AddressLine>6351 Lakeview Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Pease Middle School</Name>
+    <EntityID>201huntlaneElectionDayVoting205</EntityID>
+    <type>election-day</type>
+    <AddressLine>201 Hunt Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Pecan Valley Elementary School</Name>
+    <EntityID>3966esouthcrossElectionDayVoting206</EntityID>
+    <type>election-day</type>
+    <AddressLine>3966 E. Southcross</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Perales Steam Elementary School</Name>
+    <EntityID>1507ceralvostreetElectionDayVoting207</EntityID>
+    <type>election-day</type>
+    <AddressLine>1507 Ceralvo Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Powell Elementary School</Name>
+    <EntityID>6003thunderrdElectionDayVoting208</EntityID>
+    <type>election-day</type>
+    <AddressLine>6003 Thunder Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Pre-K Academy At West Avenue</Name>
+    <EntityID>3915westaveElectionDayVoting209</EntityID>
+    <type>election-day</type>
+    <AddressLine>3915 West Ave</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Precinct 1 Satellite Office(Both)</Name>
+    <EntityID>3505pleasantonroadElectionDayVoting210</EntityID>
+    <type>election-day</type>
+    <AddressLine>3505 Pleasanton Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Precinct 3 Satellite Office(Both)</Name>
+    <EntityID>320interparkblvdElectionDayVoting211</EntityID>
+    <type>election-day</type>
+    <AddressLine>320 Interpark Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Raba Elementary School</Name>
+    <EntityID>9740rabadriveElectionDayVoting212</EntityID>
+    <type>election-day</type>
+    <AddressLine>9740 Raba Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ralph Langley Elementary School</Name>
+    <EntityID>14185bellavistaplaceElectionDayVoting213</EntityID>
+    <type>election-day</type>
+    <AddressLine>14185 Bella Vista Place</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Rawlinson Middle School</Name>
+    <EntityID>14100vancejacksonElectionDayVoting214</EntityID>
+    <type>election-day</type>
+    <AddressLine>14100 Vance Jackson</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Rayburn Elementary School</Name>
+    <EntityID>635rayburndriveElectionDayVoting215</EntityID>
+    <type>election-day</type>
+    <AddressLine>635 Rayburn Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Redland Oaks Elementary School</Name>
+    <EntityID>16650redlandrdElectionDayVoting216</EntityID>
+    <type>election-day</type>
+    <AddressLine>16650 Redland Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Regency Place Elementary School</Name>
+    <EntityID>2635macarthurviewElectionDayVoting217</EntityID>
+    <type>election-day</type>
+    <AddressLine>2635 Macarthur View</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Resnik Middle School</Name>
+    <EntityID>4495veranopkwyElectionDayVoting218</EntityID>
+    <type>election-day</type>
+    <AddressLine>4495 Verano Pkwy.</AddressLine>
+    <Locality>Von Ormy</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Rhodes Elementary School</Name>
+    <EntityID>5714northknollElectionDayVoting219</EntityID>
+    <type>election-day</type>
+    <AddressLine>5714 North Knoll</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ridgeview Elementary School</Name>
+    <EntityID>8223nmcculloughaveElectionDayVoting220</EntityID>
+    <type>election-day</type>
+    <AddressLine>8223 N. Mccullough Ave</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Riverside Park Elementary School</Name>
+    <EntityID>202schoolstreetElectionDayVoting221</EntityID>
+    <type>election-day</type>
+    <AddressLine>202 School Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Roan Forest Elementary School</Name>
+    <EntityID>22710roanparkElectionDayVoting222</EntityID>
+    <type>election-day</type>
+    <AddressLine>22710 Roan Park</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Royal Ridge Elementary School</Name>
+    <EntityID>5933royalridgeElectionDayVoting223</EntityID>
+    <type>election-day</type>
+    <AddressLine>5933 Royal Ridge</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Rudder Middle School</Name>
+    <EntityID>6558hornblvdElectionDayVoting224</EntityID>
+    <type>election-day</type>
+    <AddressLine>6558 Horn Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sac Victory Center(Both)</Name>
+    <EntityID>1819nmainaveElectionDayVoting225</EntityID>
+    <type>election-day</type>
+    <AddressLine>1819 N. Main Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sam Houston High School</Name>
+    <EntityID>4635ehoustonElectionDayVoting226</EntityID>
+    <type>election-day</type>
+    <AddressLine>4635 E. Houston</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Samuel A. Maverick Elementary School</Name>
+    <EntityID>107raleighstreetElectionDayVoting227</EntityID>
+    <type>election-day</type>
+    <AddressLine>107 Raleigh Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>San Antonio Housing Authority</Name>
+    <EntityID>818sfloresElectionDayVoting228</EntityID>
+    <type>election-day</type>
+    <AddressLine>818 S. Flores</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>San Antonio M.U.D. #1</Name>
+    <EntityID>16450wildlakeElectionDayVoting229</EntityID>
+    <type>election-day</type>
+    <AddressLine>16450 Wildlake</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>San Antonio Shrine Auditorium</Name>
+    <EntityID>901nloop1604wElectionDayVoting230</EntityID>
+    <type>election-day</type>
+    <AddressLine>901 N. Loop 1604 W.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sarah King Elementary School</Name>
+    <EntityID>1001ceralvostreetElectionDayVoting231</EntityID>
+    <type>election-day</type>
+    <AddressLine>1001 Ceralvo Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Scarborough Elementary School</Name>
+    <EntityID>12280silverpointElectionDayVoting232</EntityID>
+    <type>election-day</type>
+    <AddressLine>12280 Silver Point</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Schaefer Branch Library(Both)</Name>
+    <EntityID>6322ushwy87eElectionDayVoting233</EntityID>
+    <type>election-day</type>
+    <AddressLine>6322 Us Hwy 87 E.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Scobee Elementary School</Name>
+    <EntityID>11223cedarparkElectionDayVoting234</EntityID>
+    <type>election-day</type>
+    <AddressLine>11223 Cedar Park</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Semmes Branch Library(Both)</Name>
+    <EntityID>15060judsonrdElectionDayVoting235</EntityID>
+    <type>election-day</type>
+    <AddressLine>15060 Judson Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Shavano Park City Hall(Both)</Name>
+    <EntityID>900saddletreectElectionDayVoting236</EntityID>
+    <type>election-day</type>
+    <AddressLine>900 Saddletree Ct.</AddressLine>
+    <Locality>Shavano Park</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Shepherd King Lutheran Church</Name>
+    <EntityID>303ramseyroadwElectionDayVoting237</EntityID>
+    <type>election-day</type>
+    <AddressLine>303 Ramsey Road W.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sky Harbour Elementary School</Name>
+    <EntityID>5902fishersbendstreetElectionDayVoting238</EntityID>
+    <type>election-day</type>
+    <AddressLine>5902 Fishers Bend Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Smith Elementary School</Name>
+    <EntityID>823sgeversElectionDayVoting239</EntityID>
+    <type>election-day</type>
+    <AddressLine>823 S. Gevers</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Somerset City Hall(Both)</Name>
+    <EntityID>7360east6thstsomersetElectionDayVoting240</EntityID>
+    <type>election-day</type>
+    <AddressLine>7360 East 6Th St., Somerset</AddressLine>
+    <Locality>Somerset</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sonny Melendrez Community Center</Name>
+    <EntityID>5919wcommerceElectionDayVoting241</EntityID>
+    <type>election-day</type>
+    <AddressLine>5919 W. Commerce</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>South San Antonio High School</Name>
+    <EntityID>7535barliteblvdElectionDayVoting242</EntityID>
+    <type>election-day</type>
+    <AddressLine>7535 Barlite Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Southside Isd Admin Bldg(Both)</Name>
+    <EntityID>1460martinezlosoyardElectionDayVoting243</EntityID>
+    <type>election-day</type>
+    <AddressLine>1460 Martinez-Losoya Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Southwest Isd</Name>
+    <EntityID>11914dragonlaneElectionDayVoting244</EntityID>
+    <type>election-day</type>
+    <AddressLine>11914 Dragon Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Specht Elementary School</Name>
+    <EntityID>25815overlookpkwyElectionDayVoting245</EntityID>
+    <type>election-day</type>
+    <AddressLine>25815 Overlook Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Spicewood Park Elementary</Name>
+    <EntityID>11303tilsonElectionDayVoting246</EntityID>
+    <type>election-day</type>
+    <AddressLine>11303 Tilson</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Spring Meadows Elementary School</Name>
+    <EntityID>7135elmtrailElectionDayVoting247</EntityID>
+    <type>election-day</type>
+    <AddressLine>7135 Elm Trail</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Hedwig City Hall</Name>
+    <EntityID>13065fm1346ElectionDayVoting248</EntityID>
+    <type>election-day</type>
+    <AddressLine>13065 Fm 1346</AddressLine>
+    <Locality>St. Hedwig</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. James Catholic Church</Name>
+    <EntityID>907wtheoaveElectionDayVoting249</EntityID>
+    <type>election-day</type>
+    <AddressLine>907 W. Theo Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Leo The Great Catholic Church</Name>
+    <EntityID>4423sfloresElectionDayVoting250</EntityID>
+    <type>election-day</type>
+    <AddressLine>4423 S. Flores</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Mary'S University(Both)</Name>
+    <EntityID>1caminosantamariaElectionDayVoting251</EntityID>
+    <type>election-day</type>
+    <AddressLine>1 Camino Santa Maria</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Paul Community Center(Both)</Name>
+    <EntityID>1201donaldsonaveElectionDayVoting252</EntityID>
+    <type>election-day</type>
+    <AddressLine>1201 Donaldson Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Philips Of Jesus Catholic Church</Name>
+    <EntityID>142elambertstElectionDayVoting253</EntityID>
+    <type>election-day</type>
+    <AddressLine>142 E. Lambert St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Phillips College</Name>
+    <EntityID>1801martinlutherkingdrElectionDayVoting254</EntityID>
+    <type>election-day</type>
+    <AddressLine>1801 Martin Luther King Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Stafford Elementary School</Name>
+    <EntityID>415sw36thstreetElectionDayVoting255</EntityID>
+    <type>election-day</type>
+    <AddressLine>415 Sw 36Th Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Stahl Elementary School</Name>
+    <EntityID>5222stahlrdElectionDayVoting256</EntityID>
+    <type>election-day</type>
+    <AddressLine>5222 Stahl Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Steubing Ranch Elementary</Name>
+    <EntityID>5100knollcreekElectionDayVoting257</EntityID>
+    <type>election-day</type>
+    <AddressLine>5100 Knoll Creek</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Stevenson Middle School</Name>
+    <EntityID>8403tezelrdElectionDayVoting258</EntityID>
+    <type>election-day</type>
+    <AddressLine>8403 Tezel Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Stone Oak Elementary School</Name>
+    <EntityID>21045cresentoaksElectionDayVoting259</EntityID>
+    <type>election-day</type>
+    <AddressLine>21045 Cresent Oaks</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Storm Elementary School</Name>
+    <EntityID>435bradyblvdElectionDayVoting260</EntityID>
+    <type>election-day</type>
+    <AddressLine>435 Brady Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Taft High School</Name>
+    <EntityID>11600fm471wElectionDayVoting261</EntityID>
+    <type>election-day</type>
+    <AddressLine>11600 Fm 471 W.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Takas Park(Both)</Name>
+    <EntityID>9310jimsealdrElectionDayVoting262</EntityID>
+    <type>election-day</type>
+    <AddressLine>9310 Jim Seal Dr.</AddressLine>
+    <Locality>Windcrest</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Tejeda Middle School</Name>
+    <EntityID>2909eevansrdElectionDayVoting263</EntityID>
+    <type>election-day</type>
+    <AddressLine>2909 E. Evans Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Terrell Hills City Hall</Name>
+    <EntityID>5100nnewbraunfelsElectionDayVoting264</EntityID>
+    <type>election-day</type>
+    <AddressLine>5100 N. New Braunfels</AddressLine>
+    <Locality>Terrell Hills</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Texas A&amp;M San Antonio Mays Center(Both)</Name>
+    <EntityID>1universitywayElectionDayVoting265</EntityID>
+    <type>election-day</type>
+    <AddressLine>1 University Way</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Thomas Edison High School</Name>
+    <EntityID>701santamonicadriveElectionDayVoting266</EntityID>
+    <type>election-day</type>
+    <AddressLine>701 Santa Monica Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Thornton Elementary School</Name>
+    <EntityID>6450pembrokeElectionDayVoting267</EntityID>
+    <type>election-day</type>
+    <AddressLine>6450 Pembroke</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Thousand Oaks Branch Library(Both)</Name>
+    <EntityID>4618thousandoaksElectionDayVoting268</EntityID>
+    <type>election-day</type>
+    <AddressLine>4618 Thousand Oaks</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Thousand Oaks Elementary School</Name>
+    <EntityID>16080hendersonpassElectionDayVoting269</EntityID>
+    <type>election-day</type>
+    <AddressLine>16080 Henderson Pass</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Tobin Library @ Oakwell(Both)</Name>
+    <EntityID>4134harrywurzbachElectionDayVoting270</EntityID>
+    <type>election-day</type>
+    <AddressLine>4134 Harry Wurzbach</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Trinity United Methodist Church</Name>
+    <EntityID>6800wurzbachrdElectionDayVoting271</EntityID>
+    <type>election-day</type>
+    <AddressLine>6800 Wurzbach Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Tuscany Heights Elementary School</Name>
+    <EntityID>25001wildernessoakElectionDayVoting272</EntityID>
+    <type>election-day</type>
+    <AddressLine>25001 Wilderness Oak</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Universal City Hall</Name>
+    <EntityID>2150universalcityblvdElectionDayVoting273</EntityID>
+    <type>election-day</type>
+    <AddressLine>2150 Universal City Blvd.</AddressLine>
+    <Locality>Universal</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Universal City Library(Both)</Name>
+    <EntityID>100northviewdrElectionDayVoting274</EntityID>
+    <type>election-day</type>
+    <AddressLine>100 Northview Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Utsa(Both)</Name>
+    <EntityID>1utsacircleElectionDayVoting275</EntityID>
+    <type>election-day</type>
+    <AddressLine>1 Utsa Circle</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Vale Middle School</Name>
+    <EntityID>2120nellisondriveElectionDayVoting276</EntityID>
+    <type>election-day</type>
+    <AddressLine>2120 N. Ellison Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Van Raub Elementary School(Both)</Name>
+    <EntityID>8776dietzelkhornrdElectionDayVoting277</EntityID>
+    <type>election-day</type>
+    <AddressLine>8776 Dietz Elkhorn Rd.</AddressLine>
+    <Locality>Fair Oaks Ranch</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Vestal Elementary School</Name>
+    <EntityID>1111wvestalplaceElectionDayVoting278</EntityID>
+    <type>election-day</type>
+    <AddressLine>1111 W. Vestal Place</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Veterans Memorial High School</Name>
+    <EntityID>7618evansrdElectionDayVoting279</EntityID>
+    <type>election-day</type>
+    <AddressLine>7618 Evans Rd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Villarreal Elementary School</Name>
+    <EntityID>2902whitetaildrElectionDayVoting280</EntityID>
+    <type>election-day</type>
+    <AddressLine>2902 White Tail Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Vineyard Ranch Elementary</Name>
+    <EntityID>16818huebnerrdElectionDayVoting281</EntityID>
+    <type>election-day</type>
+    <AddressLine>16818 Huebner Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Virginia A. Myers Elementary School</Name>
+    <EntityID>3031villagepkwyElectionDayVoting282</EntityID>
+    <type>election-day</type>
+    <AddressLine>3031 Village Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wanke Elementary School</Name>
+    <EntityID>10419oldpruerdElectionDayVoting283</EntityID>
+    <type>election-day</type>
+    <AddressLine>10419 Old Prue Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Ward Elementary School</Name>
+    <EntityID>8400cavernhillElectionDayVoting284</EntityID>
+    <type>election-day</type>
+    <AddressLine>8400 Cavern Hill</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Westminister Square Management</Name>
+    <EntityID>1838basserdElectionDayVoting285</EntityID>
+    <type>election-day</type>
+    <AddressLine>1838 Basse Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Westwood Terrace Elementary School</Name>
+    <EntityID>2315hackamorelaneElectionDayVoting286</EntityID>
+    <type>election-day</type>
+    <AddressLine>2315 Hackamore Lane</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wetmore Elementary School</Name>
+    <EntityID>3250thousandoaksElectionDayVoting287</EntityID>
+    <type>election-day</type>
+    <AddressLine>3250 Thousand Oaks</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wilshire Elementary School</Name>
+    <EntityID>6523cascadeElectionDayVoting288</EntityID>
+    <type>election-day</type>
+    <AddressLine>6523 Cascade</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wonderland Mall Of The Americas(Both)</Name>
+    <EntityID>4522fredrdElectionDayVoting289</EntityID>
+    <type>election-day</type>
+    <AddressLine>4522 Fred Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wood Middle School</Name>
+    <EntityID>14800judsonrdElectionDayVoting290</EntityID>
+    <type>election-day</type>
+    <AddressLine>14800 Judson Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodlake Hills Middle School</Name>
+    <EntityID>6625woodlakepkwyElectionDayVoting291</EntityID>
+    <type>election-day</type>
+    <AddressLine>6625 Woodlake Pkwy</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodlawn Academy</Name>
+    <EntityID>1717wmagnoliaaveElectionDayVoting292</EntityID>
+    <type>election-day</type>
+    <AddressLine>1717 W Magnolia Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodlawn Hills Elementary School</Name>
+    <EntityID>110wquilldriveElectionDayVoting293</EntityID>
+    <type>election-day</type>
+    <AddressLine>110 W Quill Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodlawn Pointe Center For Community(Both)</Name>
+    <EntityID>702donaldsonaveElectionDayVoting294</EntityID>
+    <type>election-day</type>
+    <AddressLine>702 Donaldson Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woods Of Shavano Community Club House</Name>
+    <EntityID>13838parksitewoodsstElectionDayVoting295</EntityID>
+    <type>election-day</type>
+    <AddressLine>13838 Parksite Woods St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodstone Elementary School</Name>
+    <EntityID>5602fountainwoodElectionDayVoting296</EntityID>
+    <type>election-day</type>
+    <AddressLine>5602 Fountainwood</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wortham Oaks Elementary</Name>
+    <EntityID>5710carriagecapeElectionDayVoting297</EntityID>
+    <type>election-day</type>
+    <AddressLine>5710 Carriage Cape</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wright Elementary School</Name>
+    <EntityID>115ehuffavenueElectionDayVoting298</EntityID>
+    <type>election-day</type>
+    <AddressLine>115 E. Huff Avenue</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Young Mens Leadership Academy At Philis Wheatley</Name>
+    <EntityID>415gabrielElectionDayVoting299</EntityID>
+    <type>election-day</type>
+    <AddressLine>415 Gabriel</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Young Womens Leadership Academy</Name>
+    <EntityID>2123whuisacheaveElectionDayVoting300</EntityID>
+    <type>election-day</type>
+    <AddressLine>2123 W Huisache Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Zachry Middle School</Name>
+    <EntityID>9410timberpathElectionDayVoting301</EntityID>
+    <type>election-day</type>
+    <AddressLine>9410 Timber Path</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2022-11-08T07:00:00", "close": "2022-11-08T19:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bexar County Elections(Both)</Name>
+    <EntityID>1103sfrioEarlyVoting0</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1103 S. Frio</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Bexar County Justice Center(Both)</Name>
+    <EntityID>300dolorosaEarlyVoting1</EntityID>
+    <type>early-vote</type>
+    <AddressLine>300 Dolorosa</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Brookhollow Branch Library(Both)</Name>
+    <EntityID>530heimerrdEarlyVoting2</EntityID>
+    <type>early-vote</type>
+    <AddressLine>530 Heimer Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Castle Hills City Hall(Both)</Name>
+    <EntityID>209lemonwoodEarlyVoting3</EntityID>
+    <type>early-vote</type>
+    <AddressLine>209 Lemonwood</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Christian Family Baptist Church(Both)</Name>
+    <EntityID>1589grossenbacherEarlyVoting4</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1589 Grossenbacher</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Claude Black Community Center(Both)</Name>
+    <EntityID>2805ecommerceEarlyVoting5</EntityID>
+    <type>early-vote</type>
+    <AddressLine>2805 E. Commerce</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cody Branch Library(Both)</Name>
+    <EntityID>11441vancejacksonEarlyVoting6</EntityID>
+    <type>early-vote</type>
+    <AddressLine>11441 Vance Jackson</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Copernicus Comm. Center(Both)</Name>
+    <EntityID>5003lordrdEarlyVoting7</EntityID>
+    <type>early-vote</type>
+    <AddressLine>5003 Lord Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Cortez Branch Library(Both)</Name>
+    <EntityID>2803hunterblvdEarlyVoting8</EntityID>
+    <type>early-vote</type>
+    <AddressLine>2803 Hunter Blvd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>East Central Isd Admin Building(Both)</Name>
+    <EntityID>6634newsulphurspringsrdEarlyVoting9</EntityID>
+    <type>early-vote</type>
+    <AddressLine>6634 New Sulphur Springs Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Elmendorf City Hall(Both)</Name>
+    <EntityID>4133eldridgeaveEarlyVoting10</EntityID>
+    <type>early-vote</type>
+    <AddressLine>4133 Eldridge Ave.</AddressLine>
+    <Locality>Elmendorf</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Encino Branch Library(Both)</Name>
+    <EntityID>2515eevansrdEarlyVoting11</EntityID>
+    <type>early-vote</type>
+    <AddressLine>2515 E. Evans Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Frank Garrett Multi Service Center(Both)</Name>
+    <EntityID>1226nw18thstreetEarlyVoting12</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1226 Nw 18Th Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Great Northwest Branch Library(Both)</Name>
+    <EntityID>9050wellwoodEarlyVoting13</EntityID>
+    <type>early-vote</type>
+    <AddressLine>9050 Wellwood</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Guerra Branch Library(Both)</Name>
+    <EntityID>7978wmilitarydriveEarlyVoting14</EntityID>
+    <type>early-vote</type>
+    <AddressLine>7978 W. Military Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Helotes City Hall(Both)</Name>
+    <EntityID>12951banderaroadEarlyVoting15</EntityID>
+    <type>early-vote</type>
+    <AddressLine>12951 Bandera Road</AddressLine>
+    <Locality>Helotes</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Igo Branch Library(Both)</Name>
+    <EntityID>13330kylesealeparkwayEarlyVoting16</EntityID>
+    <type>early-vote</type>
+    <AddressLine>13330 Kyle Seale Parkway</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Johnston Branch Library(Both)</Name>
+    <EntityID>6307sunvalleydriveEarlyVoting17</EntityID>
+    <type>early-vote</type>
+    <AddressLine>6307 Sun Valley Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Kirby City Hall(Both)</Name>
+    <EntityID>112baumanstEarlyVoting18</EntityID>
+    <type>early-vote</type>
+    <AddressLine>112 Bauman St.</AddressLine>
+    <Locality>Kirby</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Las Palmas Branch Library(Both)</Name>
+    <EntityID>515castrovillerdEarlyVoting19</EntityID>
+    <type>early-vote</type>
+    <AddressLine>515 Castroville Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Leon Valley Conference Center(Both)</Name>
+    <EntityID>6427eversrdEarlyVoting20</EntityID>
+    <type>early-vote</type>
+    <AddressLine>6427 Evers Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Lions Field Adult And Senior Center(Both)</Name>
+    <EntityID>2809broadwaystEarlyVoting21</EntityID>
+    <type>early-vote</type>
+    <AddressLine>2809 Broadway St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Maverick Branch Library(Both)</Name>
+    <EntityID>8700mysticparkEarlyVoting22</EntityID>
+    <type>early-vote</type>
+    <AddressLine>8700 Mystic Park</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mccreless Library(Both)</Name>
+    <EntityID>1023adastEarlyVoting23</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1023 Ada St.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Mission Branch Library(Both)</Name>
+    <EntityID>3134rooseveltaveEarlyVoting24</EntityID>
+    <type>early-vote</type>
+    <AddressLine>3134 Roosevelt Ave</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northside Activity Center(Both)</Name>
+    <EntityID>7001culebrardEarlyVoting25</EntityID>
+    <type>early-vote</type>
+    <AddressLine>7001 Culebra Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Northwest Vista College(Both)</Name>
+    <EntityID>3535nellisondriveEarlyVoting26</EntityID>
+    <type>early-vote</type>
+    <AddressLine>3535 N. Ellison Drive</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Old Converse City Hall(Both)</Name>
+    <EntityID>405sseguinroadEarlyVoting27</EntityID>
+    <type>early-vote</type>
+    <AddressLine>405 S. Seguin Road</AddressLine>
+    <Locality>Converse</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Olmos Park City Hall(Both)</Name>
+    <EntityID>120elpradodrwEarlyVoting28</EntityID>
+    <type>early-vote</type>
+    <AddressLine>120 El Prado Dr. W.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Our Lady Of The Lake University(Both)</Name>
+    <EntityID>411sw24thstreetEarlyVoting29</EntityID>
+    <type>early-vote</type>
+    <AddressLine>411 S.W. 24Th Street</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Palo Alto College(Both)</Name>
+    <EntityID>1400wvillaretblvdEarlyVoting30</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1400 W. Villaret Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Parman Branch Library At Stone Oak(Both)</Name>
+    <EntityID>20735wildernessoakEarlyVoting31</EntityID>
+    <type>early-vote</type>
+    <AddressLine>20735 Wilderness Oak</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Precinct 1 Satellite Office(Both)</Name>
+    <EntityID>3505pleasantonroadEarlyVoting32</EntityID>
+    <type>early-vote</type>
+    <AddressLine>3505 Pleasanton Road</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Precinct 3 Satellite Office(Both)</Name>
+    <EntityID>320interparkblvdEarlyVoting33</EntityID>
+    <type>early-vote</type>
+    <AddressLine>320 Interpark Blvd</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Sac Victory Center(Both)</Name>
+    <EntityID>1819nmainaveEarlyVoting34</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1819 N. Main Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Schaefer Branch Library(Both)</Name>
+    <EntityID>6322ushwy87eEarlyVoting35</EntityID>
+    <type>early-vote</type>
+    <AddressLine>6322 Us Hwy 87 E.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Semmes Branch Library(Both)</Name>
+    <EntityID>15060judsonrdEarlyVoting36</EntityID>
+    <type>early-vote</type>
+    <AddressLine>15060 Judson Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Shavano Park City Hall(Both)</Name>
+    <EntityID>900saddletreectEarlyVoting37</EntityID>
+    <type>early-vote</type>
+    <AddressLine>900 Saddletree Ct.</AddressLine>
+    <Locality>Shavano Park</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Somerset City Hall(Both)</Name>
+    <EntityID>7360east6thstsomersetEarlyVoting38</EntityID>
+    <type>early-vote</type>
+    <AddressLine>7360 East 6Th St., Somerset</AddressLine>
+    <Locality>Somerset</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Southside Isd Admin Bldg(Both)</Name>
+    <EntityID>1460martinezlosoyardEarlyVoting39</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1460 Martinez-Losoya Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Mary'S University(Both)</Name>
+    <EntityID>1caminosantamariaEarlyVoting40</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1 Camino Santa Maria</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>St. Paul Community Center(Both)</Name>
+    <EntityID>1201donaldsonaveEarlyVoting41</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1201 Donaldson Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Takas Park(Both)</Name>
+    <EntityID>9310jimsealdrEarlyVoting42</EntityID>
+    <type>early-vote</type>
+    <AddressLine>9310 Jim Seal Dr.</AddressLine>
+    <Locality>Windcrest</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Texas A&amp;M San Antonio Mays Center(Both)</Name>
+    <EntityID>1universitywayEarlyVoting43</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1 University Way</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Thousand Oaks Branch Library(Both)</Name>
+    <EntityID>4618thousandoaksEarlyVoting44</EntityID>
+    <type>early-vote</type>
+    <AddressLine>4618 Thousand Oaks</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Tobin Library @ Oakwell(Both)</Name>
+    <EntityID>4134harrywurzbachEarlyVoting45</EntityID>
+    <type>early-vote</type>
+    <AddressLine>4134 Harry Wurzbach</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Universal City Library(Both)</Name>
+    <EntityID>100northviewdrEarlyVoting46</EntityID>
+    <type>early-vote</type>
+    <AddressLine>100 Northview Dr.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Utsa(Both)</Name>
+    <EntityID>1utsacircleEarlyVoting47</EntityID>
+    <type>early-vote</type>
+    <AddressLine>1 Utsa Circle</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Van Raub Elementary School(Both)</Name>
+    <EntityID>8776dietzelkhornrdEarlyVoting48</EntityID>
+    <type>early-vote</type>
+    <AddressLine>8776 Dietz Elkhorn Rd.</AddressLine>
+    <Locality>Fair Oaks Ranch</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Wonderland Mall Of The Americas(Both)</Name>
+    <EntityID>4522fredrdEarlyVoting49</EntityID>
+    <type>early-vote</type>
+    <AddressLine>4522 Fred Rd.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+  <Place>
+    <Name>Woodlawn Pointe Center For Community(Both)</Name>
+    <EntityID>702donaldsonaveEarlyVoting50</EntityID>
+    <type>early-vote</type>
+    <AddressLine>702 Donaldson Ave.</AddressLine>
+    <Locality>San Antonio</Locality>
+    <AdminDistrict>TX</AdminDistrict>
+    <Hours>[{"open": "2000-01-01T08:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T12:00:00", "close": "2000-01-01T18:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}, {"open": "2000-01-01T08:00:00", "close": "2000-01-01T20:00:00", "startDay": "11/08/2022", "endDay": "11/08/2022"}]</Hours>
+  </Place>
+</MainRoot>

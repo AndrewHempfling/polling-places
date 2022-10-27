@@ -1,0 +1,7633 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+		crossorigin="anonymous" />
+	<title>Polling Places</title>
+
+	<style>
+		#leftSection {
+			height: 100vh;
+			position: relative;
+		}
+
+		#rightSection {
+			height: 100vh;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div style="width: 100vw; height: 100vh; display: flex; flex-direction: column">
+		<div>
+			<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+		</div>
+		<div style="background-color: #00ffff20; width: 100vw; height: 100vh; display: flex; flex-grow: 1 1 0">
+			<div class="col-12 col-md-3" id="leftSection">
+				p
+			</div>
+			<div class="col-12 col-md-9" id="rightSection">
+				<div id="mapContainer">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+		<div class="offcanvas-header">
+			<h5 id="offcanvasRightLabel">Offcanvas right</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			...
+		</div>
+	</div>
+	<!--
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+-->
+	<script>
+		let earlyVoting = [
+			{
+				"Name": "Bexar County Elections",
+				"AddressLine": "1103 S. Frio",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bexar County Justice Center",
+				"AddressLine": "300 Dolorosa",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78205",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T17:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T17:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T18:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T18:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T18:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Brookhollow Branch Library",
+				"AddressLine": "530 Heimer Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Castle Hills City Hall",
+				"AddressLine": "209 Lemonwood",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Christian Family Baptist Church",
+				"AddressLine": "1589 Grossenbacher",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Claude Black Community Center",
+				"AddressLine": "2805 E. Commerce",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78202",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cody Branch Library",
+				"AddressLine": "11441 Vance Jackson",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Copernicus Comm. Center",
+				"AddressLine": "5003 Lord Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cortez Branch Library",
+				"AddressLine": "2803 Hunter Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "East Central Isd Admin Building",
+				"AddressLine": "6634 New Sulphur Springs Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78263",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Elmendorf City Hall",
+				"AddressLine": "4133 Eldridge Ave.",
+				"Locality": "Elmendorf",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Encino Branch Library",
+				"AddressLine": "2515 E. Evans Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Frank Garrett Multi Service Center",
+				"AddressLine": "1226 Nw 18th Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Great Northwest Branch Library",
+				"AddressLine": "9050 Wellwood",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Guerra Branch Library",
+				"AddressLine": "7978 W. Military Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Helotes City Hall",
+				"AddressLine": "12951 Bandera Road",
+				"Locality": "Helotes",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Igo Branch Library",
+				"AddressLine": "13330 Kyle Seale Parkway",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Johnston Branch Library",
+				"AddressLine": "6307 Sun Valley Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kirby City Hall",
+				"AddressLine": "112 Bauman St.",
+				"Locality": "Kirby",
+				"AdminDistrict": "TX",
+				"PostalCode": "78219",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Las Palmas Branch Library",
+				"AddressLine": "515 Castroville Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Leon Valley Conference Center",
+				"AddressLine": "6427 Evers Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78238",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Lions Field Adult And Senior Center",
+				"AddressLine": "2809 Broadway St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Maverick Branch Library",
+				"AddressLine": "8700 Mystic Park",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mccreless Library",
+				"AddressLine": "1023 Ada St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mission Branch Library",
+				"AddressLine": "3134 Roosevelt Ave",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northside Activity Center",
+				"AddressLine": "7001 Culebra Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78238",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northwest Vista College",
+				"AddressLine": "3535 N. Ellison Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Old Converse City Hall",
+				"AddressLine": "405 S. Seguin Road",
+				"Locality": "Converse",
+				"AdminDistrict": "TX",
+				"PostalCode": "78109",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Olmos Park City Hall",
+				"AddressLine": "120 El Prado Dr. W.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Our Lady Of The Lake University",
+				"AddressLine": "411 S.w. 24th Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Palo Alto College",
+				"AddressLine": "1400 W. Villaret Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Parman Branch Library At Stone Oak",
+				"AddressLine": "20735 Wilderness Oak",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Precinct 1 Satellite Office",
+				"AddressLine": "3505 Pleasanton Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Precinct 3 Satellite Office",
+				"AddressLine": "320 Interpark Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sac Victory Center",
+				"AddressLine": "1819 N. Main Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Schaefer Branch Library",
+				"AddressLine": "6322 Us Hwy 87 E.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78222",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Semmes Branch Library",
+				"AddressLine": "15060 Judson Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Shavano Park City Hall",
+				"AddressLine": "900 Saddletree Ct.",
+				"Locality": "Shavano Park",
+				"AdminDistrict": "TX",
+				"PostalCode": "78231",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Somerset City Hall",
+				"AddressLine": "7360 East 6th St., Somerset",
+				"Locality": "Somerset",
+				"AdminDistrict": "TX",
+				"PostalCode": "78069",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Southside Isd Admin Bldg",
+				"AddressLine": "1460 Martinez-losoya Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Mary's University",
+				"AddressLine": "1 Camino Santa Maria",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Paul Community Center",
+				"AddressLine": "1201 Donaldson Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Takas Park",
+				"AddressLine": "9310 Jim Seal Dr.",
+				"Locality": "Windcrest",
+				"AdminDistrict": "TX",
+				"PostalCode": "78239",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Texas A&m San Antonio Mays Center",
+				"AddressLine": "1 University Way",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Thousand Oaks Branch Library",
+				"AddressLine": "4618 Thousand Oaks",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Tobin Library @ Oakwell",
+				"AddressLine": "4134 Harry Wurzbach",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Universal City Library",
+				"AddressLine": "100 Northview Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Utsa",
+				"AddressLine": "1 Utsa Circle",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Van Raub Elementary School",
+				"AddressLine": "8776 Dietz Elkhorn Rd.",
+				"Locality": "Fair Oaks Ranch",
+				"AdminDistrict": "TX",
+				"PostalCode": "78015",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wonderland Mall Of The Americas",
+				"AddressLine": "4522 Fred Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodlawn Pointe Center For Community",
+				"AddressLine": "702 Donaldson Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"earlyVoting": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-10-24T07:00:00.000Z",
+						"close": "2022-10-28T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-25T07:00:00.000Z",
+						"close": "2022-10-29T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-26T07:00:00.000Z",
+						"close": "2022-10-30T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-27T07:00:00.000Z",
+						"close": "2022-10-31T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-28T07:00:00.000Z",
+						"close": "2022-11-01T17:00:00.000Z"
+					},
+					{
+						"open": "2022-10-29T08:00:00.000Z",
+						"close": "2022-10-29T20:00:00.000Z"
+					},
+					{
+						"open": "2022-10-30T12:00:00.000Z",
+						"close": "2022-10-30T18:00:00.000Z"
+					},
+					{
+						"open": "2022-10-31T07:00:00.000Z",
+						"close": "2022-11-04T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-01T07:00:00.000Z",
+						"close": "2022-11-05T19:00:00.000Z"
+					},
+					{
+						"open": "2022-11-02T07:00:00.000Z",
+						"close": "2022-11-06T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-03T07:00:00.000Z",
+						"close": "2022-11-07T20:00:00.000Z"
+					},
+					{
+						"open": "2022-11-04T07:00:00.000Z",
+						"close": "2022-11-08T20:00:00.000Z"
+					}
+				]
+			}
+		];
+		let electionDay = [
+			{
+				"Name": "Adams Elementary School",
+				"AddressLine": "135 E. Southcross",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Adams Hill Elementary School",
+				"AddressLine": "9627 Adams Hill Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Adante Independent Living",
+				"AddressLine": "2702 Cembalo Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Agnes Cotton Academy",
+				"AddressLine": "1616 Blanco Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Alamo Heights City Hall",
+				"AddressLine": "6116 Broadway St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Alamo Heights United Methodist",
+				"AddressLine": "825 E. Basse Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Alamo Stadium Convocation Center",
+				"AddressLine": "110 Tuleta Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Alan B. Shepard Middle School",
+				"AddressLine": "5558 Ray Ellison Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Antonio Margil Elementary School",
+				"AddressLine": "1000 Perez Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Artemisia Bowden Academy",
+				"AddressLine": "515 Willow St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78202",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Aue Elementary School",
+				"AddressLine": "24750 Baywater Stage",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78255",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ball Academy",
+				"AddressLine": "343 Koehler Court",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Barkley-ruiz Elementary School",
+				"AddressLine": "1111 S. Navidad Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Beacon Hill Academy",
+				"AddressLine": "1411 W. Ashby Pl.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Beard Elementary School",
+				"AddressLine": "8725 Sonoma Pkwy",
+				"Locality": "Helotes",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bella Cameron Elementary School",
+				"AddressLine": "3635 Belgium Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78219",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bethany Romanian Church",
+				"AddressLine": "26347 Boerne Stage Rd.",
+				"Locality": "Boerne",
+				"AdminDistrict": "TX",
+				"PostalCode": "78006",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bexar County Elections(both)",
+				"AddressLine": "1103 S. Frio",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bexar County Justice Center(both)",
+				"AddressLine": "300 Dolorosa",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78205",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Big Country Elementary School",
+				"AddressLine": "2250 Pue Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Blossom Athletic Center",
+				"AddressLine": "12002 Jones Maltsberger Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bob Hope Elementary School",
+				"AddressLine": "3022 Reforma",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78211",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bobbye Behlau Elementary School",
+				"AddressLine": "2355 Camp Light Way",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bode Community Center",
+				"AddressLine": "900 Rigsby",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78210",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Boone Elementary School",
+				"AddressLine": "6614 Spring Time Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bradley Middle School",
+				"AddressLine": "14819 Heimer Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Brandeis High School",
+				"AddressLine": "13011 Kyle Seale Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Brauchle Elementary School",
+				"AddressLine": "8555 Bowens Crossing",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Brentwood Steam School Of Innovation",
+				"AddressLine": "1626 W. Thompson Place",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78226",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Brookhollow Branch Library(both)",
+				"AddressLine": "530 Heimer Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bulverde Creek Elementary School",
+				"AddressLine": "3839 Canyon Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Burke Elementary School",
+				"AddressLine": "10111 Terra Oak",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Bush Middle School",
+				"AddressLine": "1500 Evans Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Candlewood Elementary School",
+				"AddressLine": "3635 Candleglen",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78244",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Carlos Coon Elementary School",
+				"AddressLine": "3114 Timber View Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Carnahan Elementary School",
+				"AddressLine": "6839 Babcock Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Carson Elementary School",
+				"AddressLine": "8151 Old Tezel Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Castle Hills City Hall(both)",
+				"AddressLine": "209 Lemonwood",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Central Library",
+				"AddressLine": "600 Soledad",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78205",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Charles Graebner Elementary School",
+				"AddressLine": "530 Hoover Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78225",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "China Grove City Hall",
+				"AddressLine": "2412 Fm 1516 S.",
+				"Locality": "China Grove",
+				"AdminDistrict": "TX",
+				"PostalCode": "78263",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Christa Mcauliffe Middle School",
+				"AddressLine": "9390 Sw Loop 410",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Christian Family Baptist Church(both)",
+				"AddressLine": "1589 Grossenbacher",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Church Of Reconciliation",
+				"AddressLine": "8900 Starcrest",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78217",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Churchill High School",
+				"AddressLine": "12049 Blanco Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cibolo Green Elementary School",
+				"AddressLine": "24315 Bulverde Green",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78261",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "City Of Sandy Oaks Municipal Bldg",
+				"AddressLine": "22780 Priest Rd.",
+				"Locality": "Sandy Oaks",
+				"AdminDistrict": "TX",
+				"PostalCode": "78112",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "City Of Von Ormy Municipal Court",
+				"AddressLine": "14729 Quarter Horse",
+				"Locality": "Von Ormy",
+				"AdminDistrict": "TX",
+				"PostalCode": "78073",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Clark High School",
+				"AddressLine": "5150 De Zavala Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Claude Black Community Center(both)",
+				"AddressLine": "2805 E. Commerce",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78202",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Clear Spring Elementary School",
+				"AddressLine": "4311 Clear Spring Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78217",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cody Branch Library(both)",
+				"AddressLine": "11441 Vance Jackson",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cody Elementary School",
+				"AddressLine": "10403 Dugas Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cole Elementary School",
+				"AddressLine": "13185 Tillman Ridge",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Collier Elementary School",
+				"AddressLine": "834 W. Southcross",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78211",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Collins Garden Branch Library",
+				"AddressLine": "200 N. Park Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78204",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Colonial Hills United Methodist Church",
+				"AddressLine": "5247 Vance Jackson",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Colonies North Elementary School",
+				"AddressLine": "9915 Northhampton",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Community Alliance For Traffic Safety",
+				"AddressLine": "7719 Pipers Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Connally Middle School",
+				"AddressLine": "8661 Silent Sunrise",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Copernicus Comm. Center(both)",
+				"AddressLine": "5003 Lord Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Coronado Village Elem. School",
+				"AddressLine": "213 Amistad Blvd.",
+				"Locality": "Universal City",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cortez Branch Library(both)",
+				"AddressLine": "2803 Hunter Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Crockett Academy",
+				"AddressLine": "2215 Morales St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Cross Mountain Church",
+				"AddressLine": "24891 Boerne Stage Rd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78255",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Davis Middle School",
+				"AddressLine": "4702 E. Houston Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Davis Scott Ymca",
+				"AddressLine": "1213 Iowa Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78203",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Dellview Elementary School",
+				"AddressLine": "7235 Dewhurst Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "E.t. Wrenn Middle School",
+				"AddressLine": "627 S. Acme Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "East Central High School",
+				"AddressLine": "7173 Fm 1628",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78263",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "East Central Isd Admin Building(both)",
+				"AddressLine": "6634 New Sulphur Springs Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78263",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "East Terrell Hills Elementary School",
+				"AddressLine": "4415 Bloomdale",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78218",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ed White Middle School",
+				"AddressLine": "7800 Midcrown",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78218",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Edgewood Gym",
+				"AddressLine": "4133 Eldridge Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Eisenhower Middle School",
+				"AddressLine": "8231 Blanco Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "El Dorado Elementary School",
+				"AddressLine": "12634 El Sendero",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ellison Elementary School",
+				"AddressLine": "7132 Oak Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78256",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Elmendorf City Hall(both)",
+				"AddressLine": "4133 Eldridge Ave.",
+				"Locality": "Elmendorf",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Eloise Japhet Academy",
+				"AddressLine": "314 Astor",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78210",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Elolf Steam Academy",
+				"AddressLine": "6335 Beech Trail",
+				"Locality": "Converse",
+				"AdminDistrict": "TX",
+				"PostalCode": "78109",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Elrod Elementary School",
+				"AddressLine": "8885 Heath Circle Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Encino Branch Library(both)",
+				"AddressLine": "2515 E. Evans Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Esparza Elementary School",
+				"AddressLine": "5700 Hemphill Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Evers Elementary School",
+				"AddressLine": "1715 Richland Hills Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Faith Lutheran Church",
+				"AddressLine": "14819 Jones Maltsberger Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Fernandez Elementary School",
+				"AddressLine": "6845 Ridgebrook St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Fields Elementary School",
+				"AddressLine": "9570 Fm 1560",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Fire Station #3",
+				"AddressLine": "11917 Lower Seguin Rd.",
+				"Locality": "Schertz",
+				"AdminDistrict": "TX",
+				"PostalCode": "78154",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "First Chinese Baptist Church",
+				"AddressLine": "5481 Prue Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Five Palms Elementary School",
+				"AddressLine": "7138 Five Palms Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Folks Middle School",
+				"AddressLine": "9855 Swayback Ranch",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Frank Garrett Multi Service Center(both)",
+				"AddressLine": "1226 Nw 18th Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Frank Madla Elementary School",
+				"AddressLine": "6100 Royalgate Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Galm Elementary School",
+				"AddressLine": "1454 Saxohill Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Gardendale Early Learning Program",
+				"AddressLine": "1731 Dahlgreen Avenue",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Gillette Elementary School",
+				"AddressLine": "625 Gillette Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Glenoaks Elementary School",
+				"AddressLine": "5103 Newcome Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78229",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Granados Adult And Senior Center",
+				"AddressLine": "500 Freiling",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Great Northwest Branch Library(both)",
+				"AddressLine": "9050 Wellwood",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Grey Forest Community Center",
+				"AddressLine": "18249 Sherwood Trail",
+				"Locality": "Grey Forest",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Guerra Branch Library(both)",
+				"AddressLine": "7978 W. Military Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Gus Garcia University School",
+				"AddressLine": "3306 Ruiz Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hardy Oak Elementary School",
+				"AddressLine": "22900 Hardy Oak Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Harmony Elementary School",
+				"AddressLine": "10625 Green Lake Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Harmony Hills Elementary School",
+				"AddressLine": "10727 Memory Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Harry H. Rogers Middle School",
+				"AddressLine": "314 Galway Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hartman Center Ii",
+				"AddressLine": "1202 W. Bitters, Bldg 1",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hatchett Elementary",
+				"AddressLine": "10700 Ingram Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Health Careers High School",
+				"AddressLine": "4646 Hamilton Wolfe",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78229",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hector Garcia Middle School",
+				"AddressLine": "14900 Kyle Seale Parkway",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78255",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Helotes City Hall(both)",
+				"AddressLine": "12951 Bandera Road",
+				"Locality": "Helotes",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Helotes Elementary School",
+				"AddressLine": "13878 Riggs Rd.",
+				"Locality": "Helotes",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Henderson Elementary School",
+				"AddressLine": "14605 Kallison Bend",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Herman Hirsch Elementary School",
+				"AddressLine": "4826 Sea Breeze",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hidden Cove Elementary",
+				"AddressLine": "5102 Trading Post Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hidden Forest Elementary School",
+				"AddressLine": "802 Silver Spruce",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Highland Hills Elementary School",
+				"AddressLine": "734 Glamis",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Highlands High School",
+				"AddressLine": "3118 Elgin Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78210",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hill Country Retreat",
+				"AddressLine": "4550 Del Webb Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hill Country Village City Hall",
+				"AddressLine": "116 Aspen Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hill Middle School",
+				"AddressLine": "21314 Bulverde Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hollywood Park City Hall",
+				"AddressLine": "2 Mecca Dr.",
+				"Locality": "Hollywood Park",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hope Church",
+				"AddressLine": "18850 Redland Rd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Huebner Elementary School",
+				"AddressLine": "16311 Huebner Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Huisache Avenue Baptist Church",
+				"AddressLine": "1339 Huisache",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Hunters Creek Swim And Racquet Club",
+				"AddressLine": "3630 Hunters Circle St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78230",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Igo Branch Library(both)",
+				"AddressLine": "13330 Kyle Seale Parkway",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Indian Springs Elementary School",
+				"AddressLine": "25751 Wilderness Oak",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78261",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Inez Foster Elementary School",
+				"AddressLine": "6718 Pecan Valley",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "James Russell Lowell Middle School",
+				"AddressLine": "919 Thompson Place",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78226",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Joe Ward Recreation Center",
+				"AddressLine": "435 E. Sunshine Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "John Glenn Elementary School",
+				"AddressLine": "2385 Horal Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "John Greenleaf Whittier Middle School",
+				"AddressLine": "2101 Edison Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "John Hoffmann Elementary School",
+				"AddressLine": "12118 Volunteer Parkway",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "John Marshall High School",
+				"AddressLine": "8000 Lobo Ln.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Johnston Branch Library(both)",
+				"AddressLine": "6307 Sun Valley Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Judson Isd Erc",
+				"AddressLine": "8205 Palisades Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Judson Isd Performing Arts Center",
+				"AddressLine": "9443 Schaefer Rd.",
+				"Locality": "Converse",
+				"AdminDistrict": "TX",
+				"PostalCode": "78109",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kallison Elementary School",
+				"AddressLine": "8610 Ranch View",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kate Schenck Elementary School",
+				"AddressLine": "101 Kate Schenck",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kenwood Community Center",
+				"AddressLine": "305 Dora Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kinder Ranch Elementary",
+				"AddressLine": "2035 Kinder Pkwy.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78260",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kingsborough Middle School",
+				"AddressLine": "422 Ashley Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kirby City Hall(both)",
+				"AddressLine": "112 Bauman St.",
+				"Locality": "Kirby",
+				"AdminDistrict": "TX",
+				"PostalCode": "78219",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Kitty Hawk Middle School",
+				"AddressLine": "840 Cimarron Trail",
+				"Locality": "Universal City",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Knowlton Elementary School",
+				"AddressLine": "9500 Timber Path",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Krueger Elementary School",
+				"AddressLine": "9900 Wildhorse Parkway",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Krueger Middle School",
+				"AddressLine": "438 Lanark Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78218",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Lanier High School",
+				"AddressLine": "1514 W. Cesar Chavez",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Larkspur Elementary School",
+				"AddressLine": "1802 Larkspur",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Las Palmas Branch Library(both)",
+				"AddressLine": "515 Castroville Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Laurel Heights United Methodist Church",
+				"AddressLine": "227 W Woodlawn Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Leon Springs Elementary School",
+				"AddressLine": "23881 Ih 10 W",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78257",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Leon Valley Conference Center(both)",
+				"AddressLine": "6427 Evers Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78238",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Lewis Elementary School",
+				"AddressLine": "1000 Seascape",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Lions Field Adult And Senior Center(both)",
+				"AddressLine": "2809 Broadway St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Longfellow Middle School",
+				"AddressLine": "1130 E. Sunshine Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Longs Creek Elementary School",
+				"AddressLine": "15806 O'connor Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Lopez Middle School",
+				"AddressLine": "23103 Hardy Oak Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Luckey Ranch Elementary School",
+				"AddressLine": "12045 Luckey River",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78252",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Luther Burbank High School",
+				"AddressLine": "1002 Edwards Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78204",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Madison High School",
+				"AddressLine": "5005 Stahl Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Marin B.fenwick Academy",
+				"AddressLine": "1930 Waverly Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Martin Luther King Jr. Academy",
+				"AddressLine": "3501 Martin Luther King Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mary Michael Elementary School",
+				"AddressLine": "3155 Quiet Plain Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Maverick Branch Library(both)",
+				"AddressLine": "8700 Mystic Park",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "May Elementary School",
+				"AddressLine": "15707 Chase Hill Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78256",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mccreless Library(both)",
+				"AddressLine": "1023 Ada St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mcdermott Elementary School",
+				"AddressLine": "5111 Usaa Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mead Elementary School",
+				"AddressLine": "3803 Midhorizon Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78229",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Meadow Village Elementary School",
+				"AddressLine": "1406 Meadow Way Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Metzger Middle School",
+				"AddressLine": "7475 Binz-engleman Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78244",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Miguel Carrillo, Jr. Elementary School",
+				"AddressLine": "500 Price Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78211",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Miller's Point Elementary School",
+				"AddressLine": "7027 Misty Ridge",
+				"Locality": "Converse",
+				"AdminDistrict": "TX",
+				"PostalCode": "78109",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mirabeau B. Lamar Elementary School",
+				"AddressLine": "201 Parland",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mireles Elementary School",
+				"AddressLine": "12260 Rockwall Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mission Academy",
+				"AddressLine": "9210 S. Presa",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78223",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mission Branch Library(both)",
+				"AddressLine": "3134 Roosevelt Ave",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mission Del Lago Community Center",
+				"AddressLine": "2301 Del Lago Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Montgomery Elementary School",
+				"AddressLine": "7047 Montgomery Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78239",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mora Elementary School",
+				"AddressLine": "1520 American Lotus",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Mount Calvary Lutheran Church",
+				"AddressLine": "308 Mount Calvary Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Murnin Elementary School",
+				"AddressLine": "9019 Dugas",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Neff Elementary School",
+				"AddressLine": "5227 Evers Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Nichols Elementary School",
+				"AddressLine": "9560 Braun Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Nimitz Middle School",
+				"AddressLine": "5426 Blanco Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northeast Lakeview College",
+				"AddressLine": "1201 Kitty Hawk Rd",
+				"Locality": "Universal City",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northern Hills Elementary School",
+				"AddressLine": "13901 Higgins Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78217",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northside Activity Center(both)",
+				"AddressLine": "7001 Culebra Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78238",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northwest Church Of Christ",
+				"AddressLine": "9681 W. Loop 1604 N.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northwest Crossing Elementary School",
+				"AddressLine": "10255 Dover Rdg.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northwest Vista College(both)",
+				"AddressLine": "3535 N. Ellison Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Northwood Elementary School",
+				"AddressLine": "519 Pike Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Oak Grove Elementary School",
+				"AddressLine": "3250 Nacogdoches Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78217",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Oak Hills Terrace Elementary School",
+				"AddressLine": "5710 Cary Grant Dr",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Oak Meadow United Methodist Church",
+				"AddressLine": "2740 Hunters Green",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78231",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Old Converse City Hall(both)",
+				"AddressLine": "405 S. Seguin Road",
+				"Locality": "Converse",
+				"AdminDistrict": "TX",
+				"PostalCode": "78109",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Olmos Elementary School",
+				"AddressLine": "1103 Allena Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Olmos Park City Hall(both)",
+				"AddressLine": "120 El Prado Dr. W.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ott Elementary School",
+				"AddressLine": "100 N Grosenbacher Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Our Lady Of The Lake University(both)",
+				"AddressLine": "411 S.w. 24th Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Palo Alto College(both)",
+				"AddressLine": "1400 W. Villaret Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Park Village Elementary School",
+				"AddressLine": "5855 Midcrown",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78218",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Parman Branch Library At Stone Oak(both)",
+				"AddressLine": "20735 Wilderness Oak",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Paschall Elementary School",
+				"AddressLine": "6351 Lakeview Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78244",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Pease Middle School",
+				"AddressLine": "201 Hunt Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78245",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Pecan Valley Elementary School",
+				"AddressLine": "3966 E. Southcross",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78222",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Perales Steam Elementary School",
+				"AddressLine": "1507 Ceralvo Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Powell Elementary School",
+				"AddressLine": "6003 Thunder Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78238",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Pre-k Academy At West Avenue",
+				"AddressLine": "3915 West Ave",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Precinct 1 Satellite Office(both)",
+				"AddressLine": "3505 Pleasanton Road",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Precinct 3 Satellite Office(both)",
+				"AddressLine": "320 Interpark Blvd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Raba Elementary School",
+				"AddressLine": "9740 Raba Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ralph Langley Elementary School",
+				"AddressLine": "14185 Bella Vista Place",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Rawlinson Middle School",
+				"AddressLine": "14100 Vance Jackson",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Rayburn Elementary School",
+				"AddressLine": "635 Rayburn Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Redland Oaks Elementary School",
+				"AddressLine": "16650 Redland Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Regency Place Elementary School",
+				"AddressLine": "2635 Macarthur View",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78217",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Resnik Middle School",
+				"AddressLine": "4495 Verano Pkwy.",
+				"Locality": "Von Ormy",
+				"AdminDistrict": "TX",
+				"PostalCode": "78073",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Rhodes Elementary School",
+				"AddressLine": "5714 North Knoll",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ridgeview Elementary School",
+				"AddressLine": "8223 N. Mccullough Ave",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Riverside Park Elementary School",
+				"AddressLine": "202 School Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78210",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Roan Forest Elementary School",
+				"AddressLine": "22710 Roan Park",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Royal Ridge Elementary School",
+				"AddressLine": "5933 Royal Ridge",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78239",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Rudder Middle School",
+				"AddressLine": "6558 Horn Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sac Victory Center(both)",
+				"AddressLine": "1819 N. Main Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sam Houston High School",
+				"AddressLine": "4635 E. Houston",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78220",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Samuel A. Maverick Elementary School",
+				"AddressLine": "107 Raleigh Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "San Antonio Housing Authority",
+				"AddressLine": "818 S. Flores",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78204",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "San Antonio M.u.d. #1",
+				"AddressLine": "16450 Wildlake",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78023",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "San Antonio Shrine Auditorium",
+				"AddressLine": "901 N. Loop 1604 W.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sarah King Elementary School",
+				"AddressLine": "1001 Ceralvo Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Scarborough Elementary School",
+				"AddressLine": "12280 Silver Point",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Schaefer Branch Library(both)",
+				"AddressLine": "6322 Us Hwy 87 E.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78222",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Scobee Elementary School",
+				"AddressLine": "11223 Cedar Park",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Semmes Branch Library(both)",
+				"AddressLine": "15060 Judson Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Shavano Park City Hall(both)",
+				"AddressLine": "900 Saddletree Ct.",
+				"Locality": "Shavano Park",
+				"AdminDistrict": "TX",
+				"PostalCode": "78231",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Shepherd King Lutheran Church",
+				"AddressLine": "303 Ramsey Road W.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78216",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sky Harbour Elementary School",
+				"AddressLine": "5902 Fishers Bend Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78242",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Smith Elementary School",
+				"AddressLine": "823 S. Gevers",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78203",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Somerset City Hall(both)",
+				"AddressLine": "7360 East 6th St., Somerset",
+				"Locality": "Somerset",
+				"AdminDistrict": "TX",
+				"PostalCode": "78069",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Sonny Melendrez Community Center",
+				"AddressLine": "5919 W. Commerce",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "South San Antonio High School",
+				"AddressLine": "7535 Barlite Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Southside Isd Admin Bldg(both)",
+				"AddressLine": "1460 Martinez-losoya Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Southwest Isd",
+				"AddressLine": "11914 Dragon Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78252",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Specht Elementary School",
+				"AddressLine": "25815 Overlook Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78260",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Spicewood Park Elementary",
+				"AddressLine": "11303 Tilson",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Spring Meadows Elementary School",
+				"AddressLine": "7135 Elm Trail",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78244",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Hedwig City Hall",
+				"AddressLine": "13065 Fm 1346",
+				"Locality": "St. Hedwig",
+				"AdminDistrict": "TX",
+				"PostalCode": "78152",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. James Catholic Church",
+				"AddressLine": "907 W. Theo Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78225",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Leo The Great Catholic Church",
+				"AddressLine": "4423 S. Flores",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Mary's University(both)",
+				"AddressLine": "1 Camino Santa Maria",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Paul Community Center(both)",
+				"AddressLine": "1201 Donaldson Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Philips Of Jesus Catholic Church",
+				"AddressLine": "142 E. Lambert St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78204",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "St. Phillips College",
+				"AddressLine": "1801 Martin Luther King Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78203",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Stafford Elementary School",
+				"AddressLine": "415 Sw 36th Street",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78237",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Stahl Elementary School",
+				"AddressLine": "5222 Stahl Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Steubing Ranch Elementary",
+				"AddressLine": "5100 Knoll Creek",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Stevenson Middle School",
+				"AddressLine": "8403 Tezel Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Stone Oak Elementary School",
+				"AddressLine": "21045 Cresent Oaks",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Storm Elementary School",
+				"AddressLine": "435 Brady Blvd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78207",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Taft High School",
+				"AddressLine": "11600 Fm 471 W.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78253",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Takas Park(both)",
+				"AddressLine": "9310 Jim Seal Dr.",
+				"Locality": "Windcrest",
+				"AdminDistrict": "TX",
+				"PostalCode": "78239",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Tejeda Middle School",
+				"AddressLine": "2909 E. Evans Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78259",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Terrell Hills City Hall",
+				"AddressLine": "5100 N. New Braunfels",
+				"Locality": "Terrell Hills",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Texas A&m San Antonio Mays Center(both)",
+				"AddressLine": "1 University Way",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78224",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Thomas Edison High School",
+				"AddressLine": "701 Santa Monica Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78212",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Thornton Elementary School",
+				"AddressLine": "6450 Pembroke",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Thousand Oaks Branch Library(both)",
+				"AddressLine": "4618 Thousand Oaks",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Thousand Oaks Elementary School",
+				"AddressLine": "16080 Henderson Pass",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78232",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Tobin Library @ Oakwell(both)",
+				"AddressLine": "4134 Harry Wurzbach",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78209",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Trinity United Methodist Church",
+				"AddressLine": "6800 Wurzbach Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78240",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Tuscany Heights Elementary School",
+				"AddressLine": "25001 Wilderness Oak",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78260",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Universal City Hall",
+				"AddressLine": "2150 Universal City Blvd.",
+				"Locality": "Universal",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Universal City Library(both)",
+				"AddressLine": "100 Northview Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78148",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Utsa(both)",
+				"AddressLine": "1 Utsa Circle",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Vale Middle School",
+				"AddressLine": "2120 N. Ellison Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Van Raub Elementary School(both)",
+				"AddressLine": "8776 Dietz Elkhorn Rd.",
+				"Locality": "Fair Oaks Ranch",
+				"AdminDistrict": "TX",
+				"PostalCode": "78015",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Vestal Elementary School",
+				"AddressLine": "1111 W. Vestal Place",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78221",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Veterans Memorial High School",
+				"AddressLine": "7618 Evans Rd",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78266",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Villarreal Elementary School",
+				"AddressLine": "2902 White Tail Dr.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Vineyard Ranch Elementary",
+				"AddressLine": "16818 Huebner Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78258",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Virginia A. Myers Elementary School",
+				"AddressLine": "3031 Village Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78251",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wanke Elementary School",
+				"AddressLine": "10419 Old Prue Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Ward Elementary School",
+				"AddressLine": "8400 Cavern Hill",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78254",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Westminister Square Management",
+				"AddressLine": "1838 Basse Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78213",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Westwood Terrace Elementary School",
+				"AddressLine": "2315 Hackamore Lane",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78227",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wetmore Elementary School",
+				"AddressLine": "3250 Thousand Oaks",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78247",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wilshire Elementary School",
+				"AddressLine": "6523 Cascade",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78218",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wonderland Mall Of The Americas(both)",
+				"AddressLine": "4522 Fred Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wood Middle School",
+				"AddressLine": "14800 Judson Rd.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodlake Hills Middle School",
+				"AddressLine": "6625 Woodlake Pkwy",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78244",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodlawn Academy",
+				"AddressLine": "1717 W Magnolia Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodlawn Hills Elementary School",
+				"AddressLine": "110 W Quill Drive",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78228",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodlawn Pointe Center For Community(both)",
+				"AddressLine": "702 Donaldson Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woods Of Shavano Community Club House",
+				"AddressLine": "13838 Parksite Woods St.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78249",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Woodstone Elementary School",
+				"AddressLine": "5602 Fountainwood",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78233",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wortham Oaks Elementary",
+				"AddressLine": "5710 Carriage Cape",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78261",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Wright Elementary School",
+				"AddressLine": "115 E. Huff Avenue",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78214",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Young Mens Leadership Academy At Philis Wheatley",
+				"AddressLine": "415 Gabriel",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78202",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Young Womens Leadership Academy",
+				"AddressLine": "2123 W Huisache Ave.",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78201",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			},
+			{
+				"Name": "Zachry Middle School",
+				"AddressLine": "9410 Timber Path",
+				"Locality": "San Antonio",
+				"AdminDistrict": "TX",
+				"PostalCode": "78250",
+				"CountryRegion": "United States",
+				"electionDay": true,
+				"hoursofOperation": [
+					{
+						"open": "2022-11-08T07:00:00.000Z",
+						"close": "2022-11-08T19:00:00.000Z"
+					}
+				]
+			}
+		];
+		console.log()
+
+		electionDay.map(function(ed) {
+			//console.log(ed.Name)
+			let match = earlyVoting.filter(ev => ev.AddressLine == ed.AddressLine)[0]
+			if (match) {
+				let newHours = ed.hoursofOperation.concat(match.hoursofOperation)
+				ed.earlyVoting = true;
+				ed.hoursofOperation = newHours;
+				ed.Name = ed.Name.replace(/\(both\)/gi, '')
+			} else {
+				ed.earlyVoting = false;
+			}
+
+
+			ed.geocodeData = {
+				"AddressLine": ed.AddressLine,
+				"AdminDistrict": ed.AdminDistrict,
+				"CountryRegion": ed.CountryRegion,
+				"Locality": ed.Locality,
+				"PostalCode": ed.PostalCode,
+			}
+			delete ed.AddressLine;
+			delete ed.AdminDistrict;
+			delete ed.CountryRegion;
+			delete ed.Locality;
+			delete ed.PostalCode;
+
+			//console.log(ed.AddressLine)
+			//console.log(ed.hoursofOperation)
+
+		});
+		console.log(electionDay)
+	</script>
+
+</body>
+
+</html>
